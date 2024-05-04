@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96AFA50C2BE669AB009041EB /* OmnirollerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA50B2BE669AB009041EB /* OmnirollerApp.swift */; };
+		96AFA5102BE669AC009041EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96AFA50F2BE669AC009041EB /* Assets.xcassets */; };
+		96AFA5132BE669AC009041EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96AFA5122BE669AC009041EB /* Preview Assets.xcassets */; };
+		96AFA5222BE669E5009041EB /* GreenSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA5192BE669E5009041EB /* GreenSquareButton.swift */; };
+		96AFA5232BE669E5009041EB /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA51A2BE669E5009041EB /* ConfigView.swift */; };
+		96AFA5242BE669E5009041EB /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA51B2BE669E5009041EB /* Footer.swift */; };
+		96AFA5252BE669E5009041EB /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA51C2BE669E5009041EB /* Socket.swift */; };
+		96AFA5262BE669E5009041EB /* BlueSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA51D2BE669E5009041EB /* BlueSquareButton.swift */; };
+		96AFA5272BE669E5009041EB /* SlidingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA51E2BE669E5009041EB /* SlidingBarView.swift */; };
+		96AFA5282BE669E5009041EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA51F2BE669E5009041EB /* ContentView.swift */; };
+		96AFA52A2BE669E5009041EB /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA5212BE669E5009041EB /* InputTextField.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		96AFA5082BE669AB009041EB /* Omniroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omniroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96AFA50B2BE669AB009041EB /* OmnirollerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnirollerApp.swift; sourceTree = "<group>"; };
+		96AFA50F2BE669AC009041EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96AFA5122BE669AC009041EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		96AFA5192BE669E5009041EB /* GreenSquareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenSquareButton.swift; sourceTree = "<group>"; };
+		96AFA51A2BE669E5009041EB /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
+		96AFA51B2BE669E5009041EB /* Footer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
+		96AFA51C2BE669E5009041EB /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		96AFA51D2BE669E5009041EB /* BlueSquareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueSquareButton.swift; sourceTree = "<group>"; };
+		96AFA51E2BE669E5009041EB /* SlidingBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingBarView.swift; sourceTree = "<group>"; };
+		96AFA51F2BE669E5009041EB /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		96AFA5212BE669E5009041EB /* InputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96AFA5052BE669AB009041EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96AFA4FF2BE669AB009041EB = {
+			isa = PBXGroup;
+			children = (
+				96AFA50A2BE669AB009041EB /* Omniroller */,
+				96AFA5092BE669AB009041EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96AFA5092BE669AB009041EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96AFA5082BE669AB009041EB /* Omniroller.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96AFA50A2BE669AB009041EB /* Omniroller */ = {
+			isa = PBXGroup;
+			children = (
+				96AFA50B2BE669AB009041EB /* OmnirollerApp.swift */,
+				96AFA51D2BE669E5009041EB /* BlueSquareButton.swift */,
+				96AFA51A2BE669E5009041EB /* ConfigView.swift */,
+				96AFA51F2BE669E5009041EB /* ContentView.swift */,
+				96AFA51B2BE669E5009041EB /* Footer.swift */,
+				96AFA5192BE669E5009041EB /* GreenSquareButton.swift */,
+				96AFA5212BE669E5009041EB /* InputTextField.swift */,
+				96AFA51E2BE669E5009041EB /* SlidingBarView.swift */,
+				96AFA51C2BE669E5009041EB /* Socket.swift */,
+				96AFA50F2BE669AC009041EB /* Assets.xcassets */,
+				96AFA5112BE669AC009041EB /* Preview Content */,
+			);
+			path = Omniroller;
+			sourceTree = "<group>";
+		};
+		96AFA5112BE669AC009041EB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				96AFA5122BE669AC009041EB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96AFA5072BE669AB009041EB /* Omniroller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96AFA5162BE669AC009041EB /* Build configuration list for PBXNativeTarget "Omniroller" */;
+			buildPhases = (
+				96AFA5042BE669AB009041EB /* Sources */,
+				96AFA5052BE669AB009041EB /* Frameworks */,
+				96AFA5062BE669AB009041EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Omniroller;
+			productName = Omniroller;
+			productReference = 96AFA5082BE669AB009041EB /* Omniroller.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96AFA5002BE669AB009041EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					96AFA5072BE669AB009041EB = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 96AFA5032BE669AB009041EB /* Build configuration list for PBXProject "Omniroller" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96AFA4FF2BE669AB009041EB;
+			productRefGroup = 96AFA5092BE669AB009041EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96AFA5072BE669AB009041EB /* Omniroller */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96AFA5062BE669AB009041EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96AFA5132BE669AC009041EB /* Preview Assets.xcassets in Resources */,
+				96AFA5102BE669AC009041EB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96AFA5042BE669AB009041EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96AFA5232BE669E5009041EB /* ConfigView.swift in Sources */,
+				96AFA5272BE669E5009041EB /* SlidingBarView.swift in Sources */,
+				96AFA52A2BE669E5009041EB /* InputTextField.swift in Sources */,
+				96AFA5252BE669E5009041EB /* Socket.swift in Sources */,
+				96AFA50C2BE669AB009041EB /* OmnirollerApp.swift in Sources */,
+				96AFA5282BE669E5009041EB /* ContentView.swift in Sources */,
+				96AFA5222BE669E5009041EB /* GreenSquareButton.swift in Sources */,
+				96AFA5242BE669E5009041EB /* Footer.swift in Sources */,
+				96AFA5262BE669E5009041EB /* BlueSquareButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		96AFA5142BE669AC009041EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96AFA5152BE669AC009041EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96AFA5172BE669AC009041EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Omniroller/Preview Content\"";
+				DEVELOPMENT_TEAM = 2FB82FC46N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timauzakov.Omniroller;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96AFA5182BE669AC009041EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Omniroller/Preview Content\"";
+				DEVELOPMENT_TEAM = 2FB82FC46N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timauzakov.Omniroller;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96AFA5032BE669AB009041EB /* Build configuration list for PBXProject "Omniroller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96AFA5142BE669AC009041EB /* Debug */,
+				96AFA5152BE669AC009041EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96AFA5162BE669AC009041EB /* Build configuration list for PBXNativeTarget "Omniroller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96AFA5172BE669AC009041EB /* Debug */,
+				96AFA5182BE669AC009041EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96AFA5002BE669AB009041EB /* Project object */;
+}
