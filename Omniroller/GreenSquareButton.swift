@@ -37,6 +37,6 @@ struct GreenSquareButton: View {
             .background(isToggled ? Color.green : Color.red)
             .foregroundColor(.white)
             .cornerRadius(20)
-            .padding(.horizontal,20)
+            .padding(10)
     }
 }

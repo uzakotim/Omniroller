@@ -20,15 +20,15 @@ struct BlueSquareButton: View {
         Button(action: {
             if (!isToggled){
                 // connected
-                    print(command)
-                    udpSocket.send((command).data(using: .utf8)!)
+                print(command)
+                udpSocket.send((command).data(using: .utf8)!)
             }
             else
             {
                 // disconnected
             }
         }) {
-            HStack(spacing: 10) {
+            HStack(spacing: 5) {
                 Image(systemName: systemName) // Icon
                     .font(.title)
             }
