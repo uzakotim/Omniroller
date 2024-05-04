@@ -15,8 +15,6 @@ struct GreenSquareButton: View {
     var colorScheme : ColorScheme
 
     var body: some View {
-        HStack {
-            Spacer()
             Button(action: {
                 if (isToggled){
 //                    print("connecting")
@@ -39,7 +37,6 @@ struct GreenSquareButton: View {
             .background(isToggled ? Color.green : Color.red)
             .foregroundColor(.white)
             .cornerRadius(20)
-            Spacer()
-        }
+            .padding(.horizontal,20)
     }
 }

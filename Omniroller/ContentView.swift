@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  SkidController
+//  Omniroller
 //
 //  Created by Timur Uzakov on 17.04.2024.
 //
@@ -62,28 +62,28 @@ struct ThreeButtonsView: View {
     
     func up_left (sliderValue: Double, difference: Int) -> String
     {
-        return "0 " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE)
+        return "q " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE)
     }
     func down_left (sliderValue: Double, difference: Int) -> String
     {
-        return "0 -"+String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE)
+        return "z "+String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE)
     }
     
     func up (sliderValue: Double, difference: Int) -> String
     {
-        return String(Int(sliderValue))+" "+String(Int(sliderValue))
+        return "w "+String(Int(sliderValue))
     }
     func down (sliderValue: Double, difference: Int) -> String
     {
-        return "-" + String(Int(sliderValue))+" -" + String(Int(sliderValue))
+        return "s " + String(Int(sliderValue))
     }
     func up_right (sliderValue: Double, difference: Int) -> String
     {
-        return String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE) + " 0"
+        return "e " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE)
     }
     func down_right (sliderValue: Double, difference: Int) -> String
     {
-        return "-" + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE) + " 0"
+        return "c " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE)
     }
                           
     var body: some View {
@@ -96,9 +96,42 @@ struct ThreeButtonsView: View {
             BlueSquareButton(sliderValue: $sliderValue, udpSocket: $udpSocket,isToggled: $isToggled, systemName: "arrow." + direction + ".right",paddingValue: paddingRight, colorScheme: colorScheme, command: direction == "up" ? up_right(sliderValue: sliderValue, difference: FRICTION_ROTATION_SPEED_DIFFERENCE) : down_right(sliderValue: sliderValue, difference: FRICTION_ROTATION_SPEED_DIFFERENCE) )
             }
         .padding(.horizontal, 10)
-        .padding(.bottom,20)// Add padding to the HStack
+        .padding(.bottom,0)// Add padding to the HStack
     }
 }
+struct MiddleButtonsView: View {
+    @Binding public var isToggled : Bool
+    @Binding public var sliderValue: Double
+    @Binding public var udpSocket : UDPSocket
+    @Binding public var IP : String
+    @Binding public var PORT: String
+    let paddingLeft : CGFloat;
+    let paddingMiddle: CGFloat;
+    let paddingRight : CGFloat;
+    var colorScheme : ColorScheme
+          
+    func left (sliderValue: Double, difference: Int) -> String
+    {
+        return "a " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE)
+    }
+    func right (sliderValue: Double, difference: Int) -> String
+    {
+        return "d " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE)
+    }
+      
+    var body: some View {
+        HStack {
+            Spacer()
+            BlueSquareButton(sliderValue: $sliderValue, udpSocket: $udpSocket,isToggled: $isToggled, systemName: "arrow.left",paddingValue: paddingRight, colorScheme: colorScheme, command: left(sliderValue: sliderValue, difference: FRICTION_ROTATION_SPEED_DIFFERENCE))
+            GreenSquareButton(isToggled: $isToggled, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, colorScheme: colorScheme)
+            BlueSquareButton(sliderValue: $sliderValue, udpSocket: $udpSocket,isToggled: $isToggled, systemName: "arrow.right",paddingValue: paddingRight, colorScheme: colorScheme, command: right(sliderValue: sliderValue, difference: FRICTION_ROTATION_SPEED_DIFFERENCE))
+            Spacer()
+            }
+        .padding(.horizontal, 10)
+        .padding(.bottom,-20)// Add padding to the HStack
+    }
+}
+
 
 
 struct ContentView: View {
@@ -116,16 +149,15 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack{
-                HeaderMenu(title: "SKID CONTROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT)
+                HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT)
                 Spacer()
                 VStack {
                     // Add your main content here
                     SlidingBarView(sliderValue : $sliderValue, colorScheme: colorScheme)
                     ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 40, paddingMiddle: 0, paddingRight: 40, direction: "up", colorScheme: colorScheme)
-                    GreenSquareButton(isToggled: $isToggled, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, colorScheme: colorScheme)
+                    MiddleButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 0, paddingRight: 0, colorScheme: colorScheme)
                     ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 40, paddingRight: 0, direction: "down", colorScheme: colorScheme)
                 }
-                Spacer()
                 Footer(colorScheme: colorScheme)
             }.background(colorScheme == .dark ? darkThemeBackground : whiteThemeBackground)
             
