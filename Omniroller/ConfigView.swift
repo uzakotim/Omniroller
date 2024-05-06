@@ -21,13 +21,13 @@ struct HeaderConfigMenu: View {
                 NavigationLink(destination: {
                     
                     ContentView(IP:IP,PORT:PORT)
-                    
                 }, label: {
                     
                     Image(systemName: "arrowshape.left.circle.fill")
                         .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)
                                         .font(.title)
                 })
+                
                 Spacer()
                 Text("CONFIGURATIONS")
                     .font(.title)

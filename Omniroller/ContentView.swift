@@ -32,14 +32,15 @@ struct HeaderMenu: View {
                     NavigationLink(destination: {
                         
                         ConfigView(IP: IP, PORT: PORT)
-                        
+                                
                     }, label: {
                         
                         Image(systemName: "gear")
                             .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)
                                             .font(.title)
                     }).toolbarRole(.editor)
-            }
+                   
+                                  }
             .padding()
     
        
@@ -148,7 +149,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack{
+            VStack(){
                 HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT)
                 Spacer()
                 VStack {
@@ -164,6 +165,8 @@ struct ContentView: View {
 
                 
         }
+   
+     
 }
 
 #Preview {
