@@ -17,7 +17,7 @@ struct GreenSquareButton: View {
     var body: some View {
             Button(action: {
                 if (isToggled){
-//                    print("connecting")
+                    // print("connecting")
                     udpSocket = UDPSocket(ipAddress: IP, port: UInt16(PORT) ?? DEFAULT_PORT)
                     udpSocket.start()
                 }else
@@ -28,12 +28,12 @@ struct GreenSquareButton: View {
                 isToggled.toggle()
             }) {
                 HStack{
-                    Image(systemName: isToggled ? "app.connected.to.app.below.fill": "stop.circle.fill") // Icon
+                    Image(systemName: isToggled ? "app.connected.to.app.below.fill": "stop.circle.fill") 
                         .font(.title)
                 }
                 .padding(30)
             }
-            .frame(width: 130, height: 130) // Apply frame to the button
+            .frame(width: 130, height: 130) // apply frame to the button
             .background(isToggled ? Color.green : Color.red)
             .foregroundColor(.white)
             .cornerRadius(20)

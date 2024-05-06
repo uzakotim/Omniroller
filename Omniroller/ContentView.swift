@@ -96,7 +96,7 @@ struct ThreeButtonsView: View {
             BlueSquareButton(sliderValue: $sliderValue, udpSocket: $udpSocket,isToggled: $isToggled, systemName: "arrow." + direction + ".right",paddingValue: paddingRight, colorScheme: colorScheme, command: direction == "up" ? up_right(sliderValue: sliderValue, difference: FRICTION_ROTATION_SPEED_DIFFERENCE) : down_right(sliderValue: sliderValue, difference: FRICTION_ROTATION_SPEED_DIFFERENCE) )
             }
         .padding(.horizontal, 10)
-        .padding(.bottom,0)// Add padding to the HStack
+        .padding(.bottom,0)
     }
 }
 struct MiddleButtonsView: View {
@@ -152,7 +152,6 @@ struct ContentView: View {
                 HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT)
                 Spacer()
                 VStack {
-                    // Add your main content here
                     SlidingBarView(sliderValue : $sliderValue, colorScheme: colorScheme)
                     ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 40, paddingMiddle: 0, paddingRight: 40, direction: "up", colorScheme: colorScheme)
                     MiddleButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 0, paddingRight: 0, colorScheme: colorScheme)

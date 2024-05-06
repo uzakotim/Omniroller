@@ -1,8 +1,8 @@
 //
 //  SlidingBarView.swift
-//  SkidController
+//  Omniroller
 //
-//  Created by Timur Uzakov on 24.04.2024.
+//  Created by Timur Uzakov on 06.05.2024.
 //
 
 import SwiftUI
@@ -24,7 +24,6 @@ struct SlidingBarView: View {
                 ), in: 50...150, step: 10)
                 .accentColor(colorScheme == .dark ? Color.green : darkBlueColor)
                 .onChange(of: sliderValue) {
-                    // Set isSliderChanged to true when slider value changes
                     sliderText = "\(String(Int(sliderValue)))";
                 }
 
