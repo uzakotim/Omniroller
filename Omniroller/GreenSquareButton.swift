@@ -32,7 +32,7 @@ struct GreenSquareButton: View {
                         .font(.title)
                 }
                 .padding(30)
-            }
+            }.accessibilityIdentifier("start.stop")
             .frame(width: 130, height: 130) // apply frame to the button
             .background(isToggled ? Color.green : Color.red)
             .foregroundColor(.white)

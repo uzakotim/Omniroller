@@ -32,6 +32,7 @@ struct BlueSquareButton: View {
                 Image(systemName: systemName) // Icon
                     .font(.title)
             }
+            .accessibilityIdentifier(systemName)
             .padding(45) // Padding around the content
             .background(colorScheme == .dark ? darkBlueColor.opacity(0.5) : .orange.opacity(0.3)) // Blue background
             .foregroundColor(colorScheme == .dark ? .white : darkBlueColor)
