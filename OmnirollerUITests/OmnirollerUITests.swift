@@ -7,8 +7,11 @@
 
 import XCTest
 
-final class OmnirollerUITests: XCTestCase {
 
+final class OmnirollerUITests: XCTestCase {
+    var app: XCUIApplication!
+    var pipe: Pipe!
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -42,6 +45,18 @@ final class OmnirollerUITests: XCTestCase {
         
 //                app.buttons["MyButton"].tap()
 //                XCTAssert(app.staticTexts["ResultLabel"].exists)
+    }
+    func testSendsCommand() throws {
+        let app = XCUIApplication()
+        pipe = Pipe()
+        let button = app.buttons["arrow.up"]
+        app.buttons["start.stop"].tap()
+        button.tap()
+        sleep(2)
+    
+        let expected_command = "w 100"
+        let command_label = button.value as! String
+        XCTAssertEqual(command_label, expected_command, "Command name mismatch")
     }
 
 //    func testLaunchPerformance() throws {

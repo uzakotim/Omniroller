@@ -27,11 +27,12 @@ struct BlueSquareButton: View {
             {
                 // disconnected
             }
-        }) {
+        }){
             HStack(spacing: 5) {
                 Image(systemName: systemName) // Icon
                     .font(.title)
             }
+            .accessibilityValue(command)
             .accessibilityIdentifier(systemName)
             .padding(45) // Padding around the content
             .background(colorScheme == .dark ? darkBlueColor.opacity(0.5) : .orange.opacity(0.3)) // Blue background
