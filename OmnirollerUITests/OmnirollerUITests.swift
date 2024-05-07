@@ -9,9 +9,15 @@ import XCTest
 
 
 final class OmnirollerUITests: XCTestCase {
-    var app: XCUIApplication!
-    var pipe: Pipe!
     
+    var app: XCUIApplication!
+
+        override func setUp() {
+            super.setUp()
+            app = XCUIApplication()
+            app.launch()
+        }
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -23,13 +29,6 @@ final class OmnirollerUITests: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     func testHasButtons() throws {
         let app = XCUIApplication()
@@ -46,19 +45,79 @@ final class OmnirollerUITests: XCTestCase {
 //                app.buttons["MyButton"].tap()
 //                XCTAssert(app.staticTexts["ResultLabel"].exists)
     }
-    func testSendsCommand() throws {
-        let app = XCUIApplication()
-        pipe = Pipe()
-        let button = app.buttons["arrow.up"]
+    func testArrowsCommands() throws {
+        var button = app.buttons["arrow.up"]
         app.buttons["start.stop"].tap()
         button.tap()
-        sleep(2)
+        sleep(1)
     
-        let expected_command = "w 100"
-        let command_label = button.value as! String
+        var expected_command = "w 100"
+        var command_label = button.value as! String
         XCTAssertEqual(command_label, expected_command, "Command name mismatch")
+        
+        
+        button = app.buttons["arrow.down"]
+        button.tap()
+        sleep(1)
+    
+        expected_command = "s 100"
+        command_label = button.value as! String
+        XCTAssertEqual(command_label, expected_command, "Command name mismatch")
+        
+        button = app.buttons["arrow.up.left"]
+        button.tap()
+        sleep(1)
+    
+        expected_command = "q 130"
+        command_label = button.value as! String
+        XCTAssertEqual(command_label, expected_command, "Command name mismatch")
+        
+        button = app.buttons["arrow.up.right"]
+        button.tap()
+        sleep(1)
+    
+        expected_command = "e 130"
+        command_label = button.value as! String
+        XCTAssertEqual(command_label, expected_command, "Command name mismatch")
+        
+        button = app.buttons["arrow.down.left"]
+        button.tap()
+        sleep(1)
+    
+        expected_command = "z 130"
+        command_label = button.value as! String
+        XCTAssertEqual(command_label, expected_command, "Command name mismatch")
+        
+        button = app.buttons["arrow.down.right"]
+        button.tap()
+        sleep(1)
+    
+        expected_command = "c 130"
+        command_label = button.value as! String
+        XCTAssertEqual(command_label, expected_command, "Command name mismatch")
+        
+        button = app.buttons["arrow.left"]
+        button.tap()
+        sleep(1)
+    
+        expected_command = "a 130"
+        command_label = button.value as! String
+        XCTAssertEqual(command_label, expected_command, "Command name mismatch")
+        
+        button = app.buttons["arrow.right"]
+        button.tap()
+        sleep(1)
+    
+        expected_command = "d 130"
+        command_label = button.value as! String
+        XCTAssertEqual(command_label, expected_command, "Command name mismatch")
+        
     }
 
+    override func tearDown() {
+            super.tearDown()
+            app = nil
+    }
 //    func testLaunchPerformance() throws {
 //        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
 //            // This measures how long it takes to launch your application.
