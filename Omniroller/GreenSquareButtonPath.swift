@@ -92,6 +92,7 @@ struct GreenSquareButtonPath: View {
                 }
                 index += 1
             }
+            udpSocket.send(("0 0").data(using: .utf8)!)
         }
 
 
