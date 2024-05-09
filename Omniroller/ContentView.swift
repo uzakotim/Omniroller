@@ -197,7 +197,7 @@ struct ContentView: View {
                     }
                     SlidingBarView(sliderValue : $sliderValue, colorScheme: colorScheme)
                     ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT,isPathController: $isPathController, commandsList: $commandsList, paddingLeft: 40, paddingMiddle: 0, paddingRight: 40, direction: "up", colorScheme: colorScheme)
-                    MiddleButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT,isPathController: $isPathController,commandsList: $commandsList,  paddingLeft: 0, paddingMiddle: 0, paddingRight: 0, colorScheme: colorScheme)
+                    MiddleButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT,isPathController: $isPathController,commandsList: $commandsList, paddingLeft: 0, paddingMiddle: 0, paddingRight: 0, colorScheme: colorScheme)
                     ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT,isPathController: $isPathController,commandsList: $commandsList,  paddingLeft: 0, paddingMiddle: 40, paddingRight: 0, direction: "down", colorScheme: colorScheme)
                 }
                 FooterActive(colorScheme: colorScheme, isPathController: $isPathController, commandsList: $commandsList)

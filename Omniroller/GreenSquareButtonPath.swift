@@ -14,6 +14,7 @@ struct GreenSquareButtonPath: View {
     @Binding public var PORT: String
     @Binding public var commandsList: [String]
     @Binding public var sliderValue: Double
+    @State private var durationOfCommand: Double = 0.5
     @State private var isLoopRunning = false
     @State private var loopCount = 0
     @State private var timer: Timer?
@@ -63,7 +64,8 @@ struct GreenSquareButtonPath: View {
     
     func startLoop() {
             var index = 0
-            timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
+            durationOfCommand = 1.0 + (100.0 - sliderValue)/100.0
+            timer = Timer.scheduledTimer(withTimeInterval: durationOfCommand, repeats: true) { timer in
                 guard index < commandsList.count else {
                     timer.invalidate()
                     return
