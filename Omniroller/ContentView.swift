@@ -142,6 +142,7 @@ struct ContentView: View {
     @State public var udpSocket : UDPSocket = UDPSocket(ipAddress: DEFAULT_ADDRESS, port: DEFAULT_PORT)
     @State public var sliderValue: Double = DEFAULT_SLIDER_VALUE // Initial slider value
     @State private var isToggled : Bool = true
+    @State private var isPathController: Bool = false
     
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
     
@@ -153,12 +154,22 @@ struct ContentView: View {
                 HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT)
                 Spacer()
                 VStack {
-                    SlidingBarView(sliderValue : $sliderValue, colorScheme: colorScheme)
-                    ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 40, paddingMiddle: 0, paddingRight: 40, direction: "up", colorScheme: colorScheme)
-                    MiddleButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 0, paddingRight: 0, colorScheme: colorScheme)
-                    ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 40, paddingRight: 0, direction: "down", colorScheme: colorScheme)
+                    if isPathController
+                    {
+                        PathView(colorScheme: colorScheme)
+                        SlidingBarView(sliderValue : $sliderValue, colorScheme: colorScheme)
+                        ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 40, paddingMiddle: 0, paddingRight: 40, direction: "up", colorScheme: colorScheme)
+                        MiddleButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 0, paddingRight: 0, colorScheme: colorScheme)
+                        ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 40, paddingRight: 0, direction: "down", colorScheme: colorScheme)
+                    }
+                    else {
+                        SlidingBarView(sliderValue : $sliderValue, colorScheme: colorScheme)
+                        ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 40, paddingMiddle: 0, paddingRight: 40, direction: "up", colorScheme: colorScheme)
+                        MiddleButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 0, paddingRight: 0, colorScheme: colorScheme)
+                        ThreeButtonsView(isToggled: $isToggled, sliderValue: $sliderValue, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, paddingLeft: 0, paddingMiddle: 40, paddingRight: 0, direction: "down", colorScheme: colorScheme)
+                    }
                 }
-                Footer(colorScheme: colorScheme)
+                FooterActive(colorScheme: colorScheme, isPathController: $isPathController)
             }.background(colorScheme == .dark ? darkThemeBackground : whiteThemeBackground)
             
             }.navigationBarHidden(true)

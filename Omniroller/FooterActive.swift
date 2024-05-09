@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
-struct Footer: View {
+struct FooterActive: View {
     var colorScheme : ColorScheme
+    @Binding var isPathController: Bool
+
     var body: some View {
         HStack{
             Spacer()
@@ -19,6 +21,9 @@ struct Footer: View {
                     .aspectRatio(contentMode: .fit) // Maintain aspect ratio
                     .frame(width: 50, height: 50) // Set the frame size
                     .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)
+                    .onTapGesture(perform: {
+                            isPathController.toggle()
+                    })
                 
             }
             Spacer()
