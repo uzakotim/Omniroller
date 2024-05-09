@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		963D96672BECCD8A00990FA5 /* BlueSquareButtonPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D96662BECCD8A00990FA5 /* BlueSquareButtonPath.swift */; };
+		963D96692BECD03300990FA5 /* GreenSquareButtonPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D96682BECD03300990FA5 /* GreenSquareButtonPath.swift */; };
 		967CF0F02BEA7D3300A5C6FC /* OmnirollerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967CF0EF2BEA7D3300A5C6FC /* OmnirollerUITests.swift */; };
 		968B71FE2BECB3DA00C4E781 /* FooterActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B71FD2BECB3DA00C4E781 /* FooterActive.swift */; };
 		968B72002BECB4B300C4E781 /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B71FF2BECB4B300C4E781 /* PathView.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		963D96662BECCD8A00990FA5 /* BlueSquareButtonPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueSquareButtonPath.swift; sourceTree = "<group>"; };
+		963D96682BECD03300990FA5 /* GreenSquareButtonPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenSquareButtonPath.swift; sourceTree = "<group>"; };
 		967CF0ED2BEA7D3300A5C6FC /* OmnirollerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmnirollerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		967CF0EF2BEA7D3300A5C6FC /* OmnirollerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnirollerUITests.swift; sourceTree = "<group>"; };
 		968B71FD2BECB3DA00C4E781 /* FooterActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterActive.swift; sourceTree = "<group>"; };
@@ -101,11 +105,13 @@
 			children = (
 				96AFA50B2BE669AB009041EB /* OmnirollerApp.swift */,
 				96AFA51D2BE669E5009041EB /* BlueSquareButton.swift */,
+				963D96662BECCD8A00990FA5 /* BlueSquareButtonPath.swift */,
 				96AFA51A2BE669E5009041EB /* ConfigView.swift */,
 				96AFA51F2BE669E5009041EB /* ContentView.swift */,
 				96AFA51B2BE669E5009041EB /* Footer.swift */,
 				968B71FD2BECB3DA00C4E781 /* FooterActive.swift */,
 				96AFA5192BE669E5009041EB /* GreenSquareButton.swift */,
+				963D96682BECD03300990FA5 /* GreenSquareButtonPath.swift */,
 				96AFA5212BE669E5009041EB /* InputTextField.swift */,
 				96AFA51E2BE669E5009041EB /* SlidingBarView.swift */,
 				968B71FF2BECB4B300C4E781 /* PathView.swift */,
@@ -239,6 +245,8 @@
 				968B72002BECB4B300C4E781 /* PathView.swift in Sources */,
 				968B71FE2BECB3DA00C4E781 /* FooterActive.swift in Sources */,
 				96AFA50C2BE669AB009041EB /* OmnirollerApp.swift in Sources */,
+				963D96672BECCD8A00990FA5 /* BlueSquareButtonPath.swift in Sources */,
+				963D96692BECD03300990FA5 /* GreenSquareButtonPath.swift in Sources */,
 				96AFA5282BE669E5009041EB /* ContentView.swift in Sources */,
 				96AFA5222BE669E5009041EB /* GreenSquareButton.swift in Sources */,
 				96AFA5242BE669E5009041EB /* Footer.swift in Sources */,

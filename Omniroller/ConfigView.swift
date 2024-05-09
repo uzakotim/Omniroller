@@ -14,13 +14,16 @@ struct HeaderConfigMenu: View {
     var colorScheme : ColorScheme;
     @Binding public var IP : String
     @Binding public var PORT: String
+    @Binding public var commandsList: [String]
+    @Binding public var isPathcontroller: Bool
+    
     var body: some View {
         
             HStack {
                 
                 NavigationLink(destination: {
                     
-                    ContentView(IP:IP,PORT:PORT)
+                    ContentView(IP:IP,PORT:PORT,commandsList: commandsList, isPathController: isPathcontroller)
                 }, label: {
                     
                     Image(systemName: "arrowshape.left.circle.fill")
@@ -67,6 +70,8 @@ struct ConfigView: View {
     @Environment(\.colorScheme) var colorScheme
     @State public var IP : String
     @State public var PORT: String
+    @State public var commandsList: [String]
+    @State public var isPathController: Bool
     
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
     
@@ -75,7 +80,7 @@ struct ConfigView: View {
     var body: some View {
         VStack{
             NavigationStack {
-                HeaderConfigMenu(title: "CONFIGURATIONS", colorScheme: colorScheme, IP:$IP, PORT:$PORT )
+                HeaderConfigMenu(title: "CONFIGURATIONS", colorScheme: colorScheme, IP:$IP, PORT:$PORT, commandsList: $commandsList, isPathcontroller: $isPathController)
                 UserInputConfigView(colorScheme: colorScheme, IP: $IP, PORT: $PORT)
                 Spacer()
                 Footer(colorScheme: colorScheme)
@@ -86,5 +91,5 @@ struct ConfigView: View {
 }
 
 #Preview {
-    ConfigView(IP: "192.168.1.132", PORT: "8888")
+    ConfigView(IP: "192.168.1.132", PORT: "8888",commandsList: [],isPathController: true)
 }
