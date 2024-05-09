@@ -10,7 +10,6 @@ import SwiftUI
 struct SlidingImageView: View {
     let images: [String]
     var colorScheme: ColorScheme
-    @State private var currentIndex = 0
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -44,7 +43,7 @@ struct SlidingImageView: View {
          // Calculate opacity based on distance from center
          let opacity = 1.0 - Double(distanceFromCenter / maxDistance)
          
-         return index == currentIndex ? 1.0 : max(0.5, opacity)
+         return max(0.5, opacity)
      }
 }
 
