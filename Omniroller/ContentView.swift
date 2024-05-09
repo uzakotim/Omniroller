@@ -147,7 +147,8 @@ struct MiddleButtonsView: View {
                 HStack {
                     Spacer()
                     BlueSquareButtonPath(sliderValue: $sliderValue, commandsList: $commandsList,systemName: "arrow.left", paddingValue: paddingRight, colorScheme: colorScheme)
-                    GreenSquareButtonPath(isToggled: $isToggled, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, colorScheme: colorScheme)
+                    GreenSquareButtonPath(isToggled: $isToggled, udpSocket: $udpSocket, IP: $IP, PORT: $PORT, commandsList: $commandsList, sliderValue: $sliderValue)
+                    
                     BlueSquareButtonPath(sliderValue: $sliderValue,commandsList: $commandsList, systemName: "arrow.right", paddingValue: paddingRight, colorScheme: colorScheme)
                     Spacer()
                 } .padding(.horizontal, 10)
