@@ -18,22 +18,24 @@ struct SlidingImageView: View {
                 HStack(spacing: 50) {
                     ForEach(commandsList.indices, id: \.self) { index in
                                         GeometryReader { geo in
-                                            if (commandsList[index] == "arrow.left" || commandsList[index] == "arrow.right"){
-                                                Image(systemName: commandsList[index])
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(width: 40, height: 40)
-                                                    .foregroundColor(colorScheme == .dark ? .white : darkBlueColor)
-                                                    .opacity(opacity(for: geo.frame(in: .global).midX, index: index))
-                                            }
-                                            else
-                                            {
-                                                Image(systemName: commandsList[index])
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(width: 30, height: 40)
-                                                    .foregroundColor(colorScheme == .dark ? .white : darkBlueColor)
-                                                    .opacity(opacity(for: geo.frame(in: .global).midX, index: index))
+                                            if !commandsList.isEmpty{
+                                                if (commandsList[index] == "arrow.left" || commandsList[index] == "arrow.right"){
+                                                    Image(systemName: commandsList[index])
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 40, height: 40)
+                                                        .foregroundColor(colorScheme == .dark ? .white : darkBlueColor)
+                                                        .opacity(opacity(for: geo.frame(in: .global).midX, index: index))
+                                                }
+                                                else
+                                                {
+                                                    Image(systemName: commandsList[index])
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 40)
+                                                        .foregroundColor(colorScheme == .dark ? .white : darkBlueColor)
+                                                        .opacity(opacity(for: geo.frame(in: .global).midX, index: index))
+                                                }
                                             }
                                         }
                                         .frame(width: 30, height: 40) // Ensure consistent frame size for GeometryReader
