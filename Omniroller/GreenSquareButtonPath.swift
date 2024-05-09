@@ -67,6 +67,7 @@ struct GreenSquareButtonPath: View {
             durationOfCommand = 1.0 + (100.0 - sliderValue)/100.0
             timer = Timer.scheduledTimer(withTimeInterval: durationOfCommand, repeats: true) { timer in
                 guard index < commandsList.count else {
+                    udpSocket.send(("k 0").data(using: .utf8)!)
                     timer.invalidate()
                     return
                 }
@@ -77,24 +78,30 @@ struct GreenSquareButtonPath: View {
                     udpSocket.send(up(sliderValue: sliderValue).data(using: .utf8)!)
                 case "arrow.down":
                     udpSocket.send(down(sliderValue: sliderValue).data(using: .utf8)!)
+                    break
                 case "arrow.up.left":
                     udpSocket.send(up_left(sliderValue: sliderValue).data(using: .utf8)!)
+                    break
                 case "arrow.up.right":
                     udpSocket.send(up_right(sliderValue: sliderValue).data(using: .utf8)!)
+                    break
                 case "arrow.down.left":
                     udpSocket.send(down_left(sliderValue: sliderValue).data(using: .utf8)!)
+                    break
                 case "arrow.down.right":
                     udpSocket.send(down_right(sliderValue: sliderValue).data(using: .utf8)!)
+                    break
                 case "arrow.left":
                     udpSocket.send(left(sliderValue: sliderValue).data(using: .utf8)!)
+                    break
                 case "arrow.right":
                     udpSocket.send(right(sliderValue: sliderValue).data(using: .utf8)!)
+                    break
                 default:
                     break
                 }
                 index += 1
             }
-            udpSocket.send(("0 0").data(using: .utf8)!)
         }
 
 
@@ -112,7 +119,7 @@ struct GreenSquareButtonPath: View {
                 }else
                 {
                     // print("disconnecting")
-                    udpSocket.send(("0 0").data(using: .utf8)!)
+                    udpSocket.send(("k 0").data(using: .utf8)!)
                 }
                 self.toggleLoop()
                 isToggled.toggle()
