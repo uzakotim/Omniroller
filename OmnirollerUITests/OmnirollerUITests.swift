@@ -7,6 +7,7 @@
 
 import XCTest
 
+let FRICTION_ROTATION_SPEED_DIFFERENCE : Int = -30
 
 final class OmnirollerUITests: XCTestCase {
     
@@ -68,7 +69,7 @@ final class OmnirollerUITests: XCTestCase {
         button.tap()
         sleep(1)
     
-        expected_command = "q 130"
+        expected_command = "q \(100+FRICTION_ROTATION_SPEED_DIFFERENCE)"
         command_label = button.value as! String
         XCTAssertEqual(command_label, expected_command, "Command name mismatch")
         
@@ -76,7 +77,7 @@ final class OmnirollerUITests: XCTestCase {
         button.tap()
         sleep(1)
     
-        expected_command = "e 130"
+        expected_command = "e \(100+FRICTION_ROTATION_SPEED_DIFFERENCE)"
         command_label = button.value as! String
         XCTAssertEqual(command_label, expected_command, "Command name mismatch")
         
@@ -84,7 +85,7 @@ final class OmnirollerUITests: XCTestCase {
         button.tap()
         sleep(1)
     
-        expected_command = "z 130"
+        expected_command = "z \(100+FRICTION_ROTATION_SPEED_DIFFERENCE)"
         command_label = button.value as! String
         XCTAssertEqual(command_label, expected_command, "Command name mismatch")
         
@@ -92,7 +93,7 @@ final class OmnirollerUITests: XCTestCase {
         button.tap()
         sleep(1)
     
-        expected_command = "c 130"
+        expected_command = "c \(100+FRICTION_ROTATION_SPEED_DIFFERENCE)"
         command_label = button.value as! String
         XCTAssertEqual(command_label, expected_command, "Command name mismatch")
         
@@ -100,7 +101,7 @@ final class OmnirollerUITests: XCTestCase {
         button.tap()
         sleep(1)
     
-        expected_command = "a 130"
+        expected_command = "a \(100+FRICTION_ROTATION_SPEED_DIFFERENCE)"
         command_label = button.value as! String
         XCTAssertEqual(command_label, expected_command, "Command name mismatch")
         
@@ -108,7 +109,7 @@ final class OmnirollerUITests: XCTestCase {
         button.tap()
         sleep(1)
     
-        expected_command = "d 130"
+        expected_command = "d \(100+FRICTION_ROTATION_SPEED_DIFFERENCE)"
         command_label = button.value as! String
         XCTAssertEqual(command_label, expected_command, "Command name mismatch")
         

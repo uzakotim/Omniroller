@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961B7C1A2BEE18B1001BD376 /* ThreeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B7C192BEE18B1001BD376 /* ThreeButtonsView.swift */; };
+		961B7C1C2BEE1B1D001BD376 /* MiddleButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B7C1B2BEE1B1D001BD376 /* MiddleButtonsView.swift */; };
+		961B7C1E2BEE1C8C001BD376 /* HeaderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B7C1D2BEE1C8C001BD376 /* HeaderMenu.swift */; };
 		963D96672BECCD8A00990FA5 /* BlueSquareButtonPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D96662BECCD8A00990FA5 /* BlueSquareButtonPath.swift */; };
 		963D96692BECD03300990FA5 /* GreenSquareButtonPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D96682BECD03300990FA5 /* GreenSquareButtonPath.swift */; };
 		967CF0F02BEA7D3300A5C6FC /* OmnirollerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967CF0EF2BEA7D3300A5C6FC /* OmnirollerUITests.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		961B7C192BEE18B1001BD376 /* ThreeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeButtonsView.swift; sourceTree = "<group>"; };
+		961B7C1B2BEE1B1D001BD376 /* MiddleButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleButtonsView.swift; sourceTree = "<group>"; };
+		961B7C1D2BEE1C8C001BD376 /* HeaderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMenu.swift; sourceTree = "<group>"; };
 		963D96662BECCD8A00990FA5 /* BlueSquareButtonPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueSquareButtonPath.swift; sourceTree = "<group>"; };
 		963D96682BECD03300990FA5 /* GreenSquareButtonPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenSquareButtonPath.swift; sourceTree = "<group>"; };
 		967CF0ED2BEA7D3300A5C6FC /* OmnirollerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmnirollerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +80,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		961B7C202BEE1CB8001BD376 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				961B7C1D2BEE1C8C001BD376 /* HeaderMenu.swift */,
+				96AFA5212BE669E5009041EB /* InputTextField.swift */,
+				96AFA51E2BE669E5009041EB /* SlidingBarView.swift */,
+				96AFA51B2BE669E5009041EB /* Footer.swift */,
+				968B71FD2BECB3DA00C4E781 /* FooterActive.swift */,
+				961B7C192BEE18B1001BD376 /* ThreeButtonsView.swift */,
+				961B7C1B2BEE1B1D001BD376 /* MiddleButtonsView.swift */,
+				968B71FF2BECB4B300C4E781 /* PathView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		961B7C212BEE1D8B001BD376 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				96AFA51D2BE669E5009041EB /* BlueSquareButton.swift */,
+				963D96662BECCD8A00990FA5 /* BlueSquareButtonPath.swift */,
+				96AFA5192BE669E5009041EB /* GreenSquareButton.swift */,
+				963D96682BECD03300990FA5 /* GreenSquareButtonPath.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		961B7C222BEE1DB8001BD376 /* UDP */ = {
+			isa = PBXGroup;
+			children = (
+				96AFA51C2BE669E5009041EB /* Socket.swift */,
+			);
+			path = UDP;
+			sourceTree = "<group>";
+		};
 		967CF0EE2BEA7D3300A5C6FC /* OmnirollerUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,19 +143,12 @@
 		96AFA50A2BE669AB009041EB /* Omniroller */ = {
 			isa = PBXGroup;
 			children = (
+				961B7C222BEE1DB8001BD376 /* UDP */,
+				961B7C212BEE1D8B001BD376 /* Buttons */,
+				961B7C202BEE1CB8001BD376 /* Components */,
 				96AFA50B2BE669AB009041EB /* OmnirollerApp.swift */,
-				96AFA51D2BE669E5009041EB /* BlueSquareButton.swift */,
-				963D96662BECCD8A00990FA5 /* BlueSquareButtonPath.swift */,
 				96AFA51A2BE669E5009041EB /* ConfigView.swift */,
 				96AFA51F2BE669E5009041EB /* ContentView.swift */,
-				96AFA51B2BE669E5009041EB /* Footer.swift */,
-				968B71FD2BECB3DA00C4E781 /* FooterActive.swift */,
-				96AFA5192BE669E5009041EB /* GreenSquareButton.swift */,
-				963D96682BECD03300990FA5 /* GreenSquareButtonPath.swift */,
-				96AFA5212BE669E5009041EB /* InputTextField.swift */,
-				96AFA51E2BE669E5009041EB /* SlidingBarView.swift */,
-				968B71FF2BECB4B300C4E781 /* PathView.swift */,
-				96AFA51C2BE669E5009041EB /* Socket.swift */,
 				96AFA50F2BE669AC009041EB /* Assets.xcassets */,
 				96AFA5112BE669AC009041EB /* Preview Content */,
 			);
@@ -244,11 +277,14 @@
 				96AFA5252BE669E5009041EB /* Socket.swift in Sources */,
 				968B72002BECB4B300C4E781 /* PathView.swift in Sources */,
 				968B71FE2BECB3DA00C4E781 /* FooterActive.swift in Sources */,
+				961B7C1C2BEE1B1D001BD376 /* MiddleButtonsView.swift in Sources */,
 				96AFA50C2BE669AB009041EB /* OmnirollerApp.swift in Sources */,
 				963D96672BECCD8A00990FA5 /* BlueSquareButtonPath.swift in Sources */,
+				961B7C1E2BEE1C8C001BD376 /* HeaderMenu.swift in Sources */,
 				963D96692BECD03300990FA5 /* GreenSquareButtonPath.swift in Sources */,
 				96AFA5282BE669E5009041EB /* ContentView.swift in Sources */,
 				96AFA5222BE669E5009041EB /* GreenSquareButton.swift in Sources */,
+				961B7C1A2BEE18B1001BD376 /* ThreeButtonsView.swift in Sources */,
 				96AFA5242BE669E5009041EB /* Footer.swift in Sources */,
 				96AFA5262BE669E5009041EB /* BlueSquareButton.swift in Sources */,
 			);

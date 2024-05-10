@@ -9,7 +9,7 @@ import SwiftUI
 struct FooterActive: View {
     var colorScheme : ColorScheme
     @Binding var isPathController: Bool
-    @Binding public var commandsList: [String]
+    @Binding public var commandsList: [[String]]
 
     var body: some View {
         HStack{

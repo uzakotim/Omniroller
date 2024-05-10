@@ -14,7 +14,7 @@ struct HeaderConfigMenu: View {
     var colorScheme : ColorScheme;
     @Binding public var IP : String
     @Binding public var PORT: String
-    @Binding public var commandsList: [String]
+    @Binding public var commandsList: [[String]]
     @Binding public var isPathcontroller: Bool
     
     var body: some View {
@@ -70,7 +70,7 @@ struct ConfigView: View {
     @Environment(\.colorScheme) var colorScheme
     @State public var IP : String
     @State public var PORT: String
-    @State public var commandsList: [String]
+    @State public var commandsList: [[String]]
     @State public var isPathController: Bool
     
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)

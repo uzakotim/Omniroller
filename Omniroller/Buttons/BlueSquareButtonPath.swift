@@ -9,15 +9,15 @@ import SwiftUI
 
 struct BlueSquareButtonPath: View {
     @Binding public var sliderValue: Double
-    @Binding public var commandsList: [String]
+    @Binding public var commandsList: [[String]]
+    var command: String
     var systemName: String // Icon name
     var paddingValue : CGFloat
     var colorScheme : ColorScheme
     
-    
     var body: some View {
         Button(action:{
-                commandsList.append(systemName)
+            commandsList.append([command,systemName])
         }){
             HStack(spacing: 5) {
                 Image(systemName: systemName) // Icon
