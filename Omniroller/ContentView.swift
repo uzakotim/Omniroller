@@ -10,7 +10,7 @@ import SwiftUI
 let darkBlueColor = Color(red: 0/255, green: 51/255, blue: 102/255);
 let DEFAULT_ADDRESS: String = "192.168.1.160"
 let DEFAULT_PORT: UInt16 = 8080
-let FRICTION_ROTATION_SPEED_DIFFERENCE : Int = -30
+let FRICTION_ROTATION_SPEED_DIFFERENCE : Int = 0
 let DEFAULT_SLIDER_VALUE : Double = 100
 
 

@@ -7,7 +7,7 @@
 
 import XCTest
 
-let FRICTION_ROTATION_SPEED_DIFFERENCE : Int = -30
+let FRICTION_ROTATION_SPEED_DIFFERENCE : Int = 0
 
 final class OmnirollerUITests: XCTestCase {
     
