@@ -8,7 +8,7 @@
 import SwiftUI
 struct SlidingBarView: View {
     
-    @Binding public var sliderValue: Double
+    @Binding public var car_config: car_config
     @State private var isSliderChanged: Bool = false;
     @State private var sliderText: String = "SPEED";
     var colorScheme : ColorScheme
@@ -17,14 +17,14 @@ struct SlidingBarView: View {
             Text(sliderText).font(.title).foregroundColor(colorScheme == .dark ? .white : darkBlueColor)// Display slider value
             
             Slider(value: Binding(
-                    get: { self.sliderValue },
+                get: { car_config.slider_value },
                     set: { newValue in
-                        self.sliderValue = min(150, max(50, round(newValue / 10) * 10))
+                        car_config.slider_value = min(car_config.upper_limit, max(car_config.lower_limit, round(newValue / 10) * 10))       
                     }
-                ), in: 50...150, step: 10)
+            ), in: car_config.lower_limit...car_config.upper_limit, step: 10)
                 .accentColor(colorScheme == .dark ? Color.green : darkBlueColor)
-                .onChange(of: sliderValue) {
-                    sliderText = "\(String(Int(sliderValue)))";
+                .onChange(of: car_config.slider_value) {
+                    sliderText = "\(String(Int(car_config.slider_value)))";
                 }
 
         }

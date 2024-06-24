@@ -13,8 +13,16 @@ let DEFAULT_PORT: UInt16 = 8080
 let FRICTION_ROTATION_SPEED_DIFFERENCE : Int = 0
 let DEFAULT_SLIDER_VALUE : Double = 100
 
+struct car_config
+{
+    let name: String
+    var slider_value: Double
+    let upper_limit: Double
+    let lower_limit: Double
+}
 
-
+let omni_robot_config : car_config = car_config(name: "omni", slider_value: 100, upper_limit: 150, lower_limit: 50)
+let skid_robot_config : car_config = car_config(name: "skid", slider_value: 250, upper_limit: 300, lower_limit: 200)
 
 
 struct ContentView: View {
@@ -26,6 +34,7 @@ struct ContentView: View {
     @State public var commandsList : [[String]]
     @State private var isToggled : Bool = true
     @State public var isPathController: Bool = false
+    @State public var car_config: car_config = omni_robot_config
 
     
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
@@ -35,7 +44,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(){
-                HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT, commandsList: $commandsList, isPathController: $isPathController)
+                HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT, commandsList: $commandsList, isPathController: $isPathController, car_config: $car_config)
                 Spacer()
                 VStack {
                     if isPathController
@@ -45,7 +54,7 @@ struct ContentView: View {
                             commandsList: $commandsList)
                     }
                     SlidingBarView(
-                        sliderValue : $sliderValue,
+                        car_config : $car_config,
                         colorScheme: colorScheme)
                     ThreeButtonsView(
                         isToggled: $isToggled,

@@ -14,6 +14,7 @@ struct HeaderMenu: View {
     @Binding public var PORT: String
     @Binding public var commandsList: [[String]]
     @Binding public var isPathController: Bool
+    @Binding public var car_config: car_config
 
     var body: some View {
         
@@ -30,7 +31,8 @@ struct HeaderMenu: View {
                             IP: IP,
                             PORT: PORT,
                             commandsList: commandsList,
-                            isPathController: isPathController)
+                            isPathController: isPathController,
+                            car_config: car_config)
                     }, label: {
                         Image(systemName: "gear")
                             .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)

@@ -50,6 +50,7 @@ struct UserInputConfigView: View {
     var colorScheme : ColorScheme;
     @Binding public var IP : String
     @Binding public var PORT: String
+    @Binding public var car_config: car_config
     var body: some View {
         VStack{
            InputTextField(changingVariable: $IP, colorScheme: colorScheme, mainText: "IP: ", subText: "Please, enter IP address of the robot")
@@ -72,7 +73,8 @@ struct ConfigView: View {
     @State public var PORT: String
     @State public var commandsList: [[String]]
     @State public var isPathController: Bool
-    
+    @State public var car_config: car_config
+
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
     
     let whiteThemeBackground = LinearGradient(gradient: Gradient(colors: [.yellow, .orange.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
@@ -81,7 +83,7 @@ struct ConfigView: View {
         VStack{
             NavigationStack {
                 HeaderConfigMenu(title: "CONFIGURATIONS", colorScheme: colorScheme, IP:$IP, PORT:$PORT, commandsList: $commandsList, isPathcontroller: $isPathController)
-                UserInputConfigView(colorScheme: colorScheme, IP: $IP, PORT: $PORT)
+                UserInputConfigView(colorScheme: colorScheme, IP: $IP, PORT: $PORT, car_config: $car_config)
                 Spacer()
                 Footer(colorScheme: colorScheme)
             }.navigationBarHidden(true)
@@ -91,5 +93,5 @@ struct ConfigView: View {
 }
 
 #Preview {
-    ConfigView(IP: "192.168.1.132", PORT: "8888",commandsList: [],isPathController: true)
+    ConfigView(IP: "192.168.1.132", PORT: "8888",commandsList: [],isPathController: true, car_config: skid_robot_config)
 }
