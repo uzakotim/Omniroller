@@ -16,6 +16,8 @@ struct HeaderConfigMenu: View {
     @Binding public var PORT: String
     @Binding public var commandsList: [[String]]
     @Binding public var isPathcontroller: Bool
+    @Binding public var car_config: car_config
+    @Binding public var isToggledCar: Bool
     
     var body: some View {
         
@@ -23,7 +25,7 @@ struct HeaderConfigMenu: View {
                 
                 NavigationLink(destination: {
                     
-                    ContentView(IP:IP,PORT:PORT,commandsList: commandsList, isPathController: isPathcontroller)
+                    ContentView(IP:IP,PORT:PORT,commandsList: commandsList, isPathController: isPathcontroller, car_config: car_config, isToggledCar: isToggledCar)
                 }, label: {
                     
                     Image(systemName: "arrowshape.left.circle.fill")
@@ -51,14 +53,29 @@ struct UserInputConfigView: View {
     @Binding public var IP : String
     @Binding public var PORT: String
     @Binding public var car_config: car_config
+    @Binding public var isToggledCar: Bool
     var body: some View {
         VStack{
-           InputTextField(changingVariable: $IP, colorScheme: colorScheme, mainText: "IP: ", subText: "Please, enter IP address of the robot")
-                Divider()
-                                .background(darkBlueColor)
-                                .padding(.horizontal)
+            InputTextField(changingVariable: $IP, colorScheme: colorScheme, mainText: "IP: ", subText: "Please, enter IP address of the robot")
+            Divider()
+                .background(darkBlueColor)
+                .padding(.horizontal)
             InputTextField(changingVariable: $PORT, colorScheme: colorScheme, mainText: "PORT: ", subText: "Please, enter the port")
+            Spacer()
+            HStack{
+                Text("CAR CONFIG:")
+                    .font(.headline)
+                    .foregroundColor(colorScheme == .dark ? .white : darkBlueColor)
                 Spacer()
+            }
+            .padding(8)
+            HStack
+            {
+                Spacer()
+                BlueCarButton(systemName: "omni",isToggled: $isToggledCar, car_config: $car_config, paddingValue: 10, colorScheme: colorScheme, command: "omni")
+                BlueCarButton(systemName: "skid", isToggled: $isToggledCar, car_config: $car_config,paddingValue: 10, colorScheme: colorScheme, command: "skid")
+                Spacer()
+            }
         }
             .
         padding()
@@ -74,6 +91,7 @@ struct ConfigView: View {
     @State public var commandsList: [[String]]
     @State public var isPathController: Bool
     @State public var car_config: car_config
+    @State public var isToggledCar: Bool
 
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
     
@@ -82,8 +100,8 @@ struct ConfigView: View {
     var body: some View {
         VStack{
             NavigationStack {
-                HeaderConfigMenu(title: "CONFIGURATIONS", colorScheme: colorScheme, IP:$IP, PORT:$PORT, commandsList: $commandsList, isPathcontroller: $isPathController)
-                UserInputConfigView(colorScheme: colorScheme, IP: $IP, PORT: $PORT, car_config: $car_config)
+                HeaderConfigMenu(title: "CONFIGURATIONS", colorScheme: colorScheme, IP:$IP, PORT:$PORT, commandsList: $commandsList, isPathcontroller: $isPathController, car_config: $car_config, isToggledCar: $isToggledCar)
+                UserInputConfigView(colorScheme: colorScheme, IP: $IP, PORT: $PORT, car_config: $car_config, isToggledCar: $isToggledCar)
                 Spacer()
                 Footer(colorScheme: colorScheme)
             }.navigationBarHidden(true)
@@ -93,5 +111,5 @@ struct ConfigView: View {
 }
 
 #Preview {
-    ConfigView(IP: "192.168.1.132", PORT: "8888",commandsList: [],isPathController: true, car_config: skid_robot_config)
+    ConfigView(IP: "192.168.1.132", PORT: "8888",commandsList: [],isPathController: true, car_config: skid_robot_config, isToggledCar: true)
 }

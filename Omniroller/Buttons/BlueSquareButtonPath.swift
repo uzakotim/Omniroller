@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BlueSquareButtonPath: View {
-    @Binding public var sliderValue: Double
     @Binding public var commandsList: [[String]]
     var command: String
     var systemName: String // Icon name

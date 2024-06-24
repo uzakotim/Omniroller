@@ -8,7 +8,7 @@
 import SwiftUI
 struct MiddleButtonsPath: View {
     @Binding public var isToggled : Bool
-    @Binding public var sliderValue: Double
+    @Binding public var car_config: car_config
     @Binding public var udpSocket : UDPSocket
     @Binding public var IP : String
     @Binding public var PORT: String
@@ -18,29 +18,31 @@ struct MiddleButtonsPath: View {
     var body: some View {
         HStack {
             Spacer()
-            BlueSquareButtonPath(
-                sliderValue: $sliderValue,
-                commandsList: $commandsList,
-                command:
-                    "a " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE),
-                systemName: "arrow.left",
-                paddingValue: padding,
-                colorScheme: colorScheme)
+            if (car_config.name == "omni"){
+                BlueSquareButtonPath(
+                    
+                    commandsList: $commandsList,
+                    command:
+                        "a " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
+                    systemName: "arrow.left",
+                    paddingValue: padding,
+                    colorScheme: colorScheme)
+            }
             GreenSquareButtonPath(
                 isToggled: $isToggled,
                 udpSocket: $udpSocket,
                 IP: $IP,
                 PORT: $PORT,
                 commandsList: $commandsList,
-                sliderValue: $sliderValue)
-            
-            BlueSquareButtonPath(
-                sliderValue: $sliderValue,
-                commandsList: $commandsList,
-                command: "d " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE),
-                systemName: "arrow.right",
-                paddingValue: padding,
-                colorScheme: colorScheme)
+                car_config: $car_config)
+            if (car_config.name == "omni"){
+                BlueSquareButtonPath(
+                    commandsList: $commandsList,
+                    command: "d " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
+                    systemName: "arrow.right",
+                    paddingValue: padding,
+                    colorScheme: colorScheme)
+            }
             Spacer()
         } .padding(.horizontal, 10)
             .padding(.bottom,-20)// Add padding to the HStack
@@ -49,7 +51,7 @@ struct MiddleButtonsPath: View {
 
 struct MiddleButtonsPassive: View {
     @Binding public var isToggled : Bool
-    @Binding public var sliderValue: Double
+    @Binding public var car_config: car_config
     @Binding public var udpSocket : UDPSocket
     @Binding public var IP : String
     @Binding public var PORT: String
@@ -58,28 +60,30 @@ struct MiddleButtonsPassive: View {
     var body: some View {
         HStack{
             Spacer()
-            BlueSquareButton(
-                sliderValue: $sliderValue,
-                udpSocket: $udpSocket,
-                isToggled: $isToggled,
-                systemName: "arrow.left",
-                paddingValue: padding,
-                colorScheme: colorScheme,
-                command: "a " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE))
+            if (car_config.name == "omni"){
+                BlueSquareButton(
+                    udpSocket: $udpSocket,
+                    isToggled: $isToggled,
+                    systemName: "arrow.left",
+                    paddingValue: padding,
+                    colorScheme: colorScheme,
+                    command: "a " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
+            }
             GreenSquareButton(
                 isToggled: $isToggled,
                 udpSocket: $udpSocket,
                 IP: $IP,
                 PORT: $PORT,
                 colorScheme: colorScheme)
-            BlueSquareButton(
-                sliderValue: $sliderValue,
-                udpSocket: $udpSocket,
-                isToggled: $isToggled,
-                systemName: "arrow.right",
-                paddingValue: padding,
-                colorScheme: colorScheme,
-                command: "d " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE))
+            if (car_config.name == "omni"){
+                BlueSquareButton(
+                    udpSocket: $udpSocket,
+                    isToggled: $isToggled,
+                    systemName: "arrow.right",
+                    paddingValue: padding,
+                    colorScheme: colorScheme,
+                    command: "d " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
+            }
             Spacer()
         }
         .padding(.horizontal, 10)
@@ -88,7 +92,7 @@ struct MiddleButtonsPassive: View {
 }
 struct MiddleButtonsView: View {
     @Binding public var isToggled : Bool
-    @Binding public var sliderValue: Double
+    @Binding public var car_config: car_config
     @Binding public var udpSocket : UDPSocket
     @Binding public var IP : String
     @Binding public var PORT: String
@@ -100,7 +104,7 @@ struct MiddleButtonsView: View {
         
             if (isPathController == true) {
                 MiddleButtonsPath(isToggled: $isToggled,
-                                  sliderValue: $sliderValue,
+                                  car_config: $car_config,
                                   udpSocket: $udpSocket,
                                   IP: $IP,
                                   PORT: $PORT,
@@ -109,7 +113,7 @@ struct MiddleButtonsView: View {
                                   colorScheme: colorScheme)
             }else {
                 MiddleButtonsPassive(isToggled: $isToggled,
-                                  sliderValue: $sliderValue,
+                                  car_config: $car_config,
                                   udpSocket: $udpSocket,
                                   IP: $IP,
                                   PORT: $PORT,

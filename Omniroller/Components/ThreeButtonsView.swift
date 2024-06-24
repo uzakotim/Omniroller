@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct ThreeButtonsPath : View {
-    @Binding public var sliderValue: Double
+    @Binding public var car_config: car_config
     @Binding public var commandsList :[[String]]
     let direction : String
     let paddingLeft: CGFloat
@@ -16,24 +16,24 @@ struct ThreeButtonsPath : View {
     let colorScheme: ColorScheme
     var body: some View {
         HStack{
-            BlueSquareButtonPath(sliderValue: $sliderValue, commandsList: $commandsList, command: direction == "up" ?
-                                 "q " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
-                                 "z " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE),
+            BlueSquareButtonPath( commandsList: $commandsList, command: direction == "up" ?
+                                  "q " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
+                                 "z " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
                 systemName: "arrow." + direction + ".left",
                 paddingValue: paddingLeft,
                 colorScheme: colorScheme)
             Spacer()
-            BlueSquareButtonPath(sliderValue: $sliderValue,commandsList: $commandsList,command: direction == "up" ?
-                                 "w " + String(Int(sliderValue)) :
-                                 "s " + String(Int(sliderValue)),
+            BlueSquareButtonPath(commandsList: $commandsList,command: direction == "up" ?
+                                 "w " + String(Int(car_config.slider_value)) :
+                                 "s " + String(Int(car_config.slider_value)),
                 systemName: "arrow." + direction,
                 paddingValue: paddingMiddle,
                 colorScheme: colorScheme)
             
             Spacer()
-            BlueSquareButtonPath(sliderValue: $sliderValue,commandsList: $commandsList, command: direction == "up" ?
-                                 "e " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
-                                 "c " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE),
+            BlueSquareButtonPath(commandsList: $commandsList, command: direction == "up" ?
+                                 "e " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
+                                 "c " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
                 systemName: "arrow." + direction + ".right",
                 paddingValue: paddingRight,
                 colorScheme: colorScheme)
@@ -44,7 +44,7 @@ struct ThreeButtonsPath : View {
 }
 
 struct ThreeButtonsPassive : View {
-    @Binding public var sliderValue: Double
+    @Binding public var car_config: car_config
     @Binding public var commandsList :[[String]]
     @Binding public var udpSocket : UDPSocket
     @Binding public var isToggled : Bool
@@ -56,37 +56,34 @@ struct ThreeButtonsPassive : View {
     var body: some View {
         HStack {
             BlueSquareButton(
-                sliderValue: $sliderValue,
                 udpSocket: $udpSocket,
                 isToggled: $isToggled,
                 systemName: "arrow." + direction + ".left",
                 paddingValue: paddingLeft,
                 colorScheme: colorScheme,
                 command: direction == "up" ?
-                "q " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
-                "z " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE))
+                "q " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
+                    "z " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
             Spacer()
             BlueSquareButton(
-                sliderValue: $sliderValue,
                 udpSocket: $udpSocket,
                 isToggled: $isToggled,
                 systemName: "arrow." + direction,
                 paddingValue: paddingMiddle,
                 colorScheme: colorScheme,
                 command: direction=="up" ?
-                "w " + String(Int(sliderValue)) :
-                "s " + String(Int(sliderValue)))
+                "w " + String(Int(car_config.slider_value)) :
+                    "s " + String(Int(car_config.slider_value)))
             Spacer()
             BlueSquareButton(
-                sliderValue: $sliderValue,
                 udpSocket: $udpSocket,
                 isToggled: $isToggled,
                 systemName: "arrow." + direction + ".right",
                 paddingValue: paddingRight,
                 colorScheme: colorScheme,
                 command: direction == "up" ?
-                "e " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
-                "c " + String(Int(sliderValue)+FRICTION_ROTATION_SPEED_DIFFERENCE) )
+                "e " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
+                "c " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) )
         }.padding(.horizontal, 10)
          .padding(.bottom,0)
     }
@@ -94,7 +91,7 @@ struct ThreeButtonsPassive : View {
 
 struct ThreeButtonsView: View {
     @Binding public var isToggled : Bool
-    @Binding public var sliderValue: Double
+    @Binding public var car_config: car_config
     @Binding public var udpSocket : UDPSocket
     @Binding public var IP : String
     @Binding public var PORT: String
@@ -110,7 +107,7 @@ struct ThreeButtonsView: View {
     var body: some View {
             if (isPathController == true)
             {
-                ThreeButtonsPath(sliderValue: $sliderValue,
+                ThreeButtonsPath(   car_config: $car_config,
                                    commandsList: $commandsList,
                                    direction: direction,
                                    paddingLeft: paddingLeft,
@@ -119,7 +116,7 @@ struct ThreeButtonsView: View {
                                    colorScheme: colorScheme)
             }
             else {
-                ThreeButtonsPassive(sliderValue: $sliderValue,
+                ThreeButtonsPassive(car_config: $car_config,
                                     commandsList: $commandsList,
                                     udpSocket: $udpSocket,
                                     isToggled: $isToggled,

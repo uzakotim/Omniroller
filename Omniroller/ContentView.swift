@@ -22,7 +22,7 @@ struct car_config
 }
 
 let omni_robot_config : car_config = car_config(name: "omni", slider_value: 100, upper_limit: 150, lower_limit: 50)
-let skid_robot_config : car_config = car_config(name: "skid", slider_value: 250, upper_limit: 300, lower_limit: 200)
+let skid_robot_config : car_config = car_config(name: "skid", slider_value: 250, upper_limit: 250, lower_limit: 150)
 
 
 struct ContentView: View {
@@ -34,7 +34,8 @@ struct ContentView: View {
     @State public var commandsList : [[String]]
     @State private var isToggled : Bool = true
     @State public var isPathController: Bool = false
-    @State public var car_config: car_config = omni_robot_config
+    @State public var car_config: car_config
+    @State public var isToggledCar: Bool
 
     
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
@@ -44,7 +45,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(){
-                HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT, commandsList: $commandsList, isPathController: $isPathController, car_config: $car_config)
+                HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT, commandsList: $commandsList, isPathController: $isPathController, car_config: $car_config,isToggledCar: $isToggledCar)
                 Spacer()
                 VStack {
                     if isPathController
@@ -58,7 +59,7 @@ struct ContentView: View {
                         colorScheme: colorScheme)
                     ThreeButtonsView(
                         isToggled: $isToggled,
-                        sliderValue: $sliderValue,
+                        car_config: $car_config,
                         udpSocket: $udpSocket,
                         IP: $IP,
                         PORT: $PORT,
@@ -71,7 +72,7 @@ struct ContentView: View {
                         colorScheme: colorScheme)
                     MiddleButtonsView(
                         isToggled: $isToggled,
-                        sliderValue: $sliderValue,
+                        car_config: $car_config,
                         udpSocket: $udpSocket,
                         IP: $IP,
                         PORT: $PORT,
@@ -81,7 +82,7 @@ struct ContentView: View {
                         colorScheme: colorScheme)
                     ThreeButtonsView(
                         isToggled: $isToggled,
-                        sliderValue: $sliderValue,
+                        car_config: $car_config,
                         udpSocket: $udpSocket,
                         IP: $IP,
                         PORT: $PORT,
@@ -110,5 +111,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(IP: "192.168.1.152", PORT:"3333",commandsList: [],isPathController: false)
+    ContentView(IP: "192.168.1.152", PORT:"3333",commandsList: [],isPathController: false, car_config: omni_robot_config, isToggledCar: true)
 }

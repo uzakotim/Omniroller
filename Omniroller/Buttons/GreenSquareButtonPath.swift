@@ -13,7 +13,7 @@ struct GreenSquareButtonPath: View {
     @Binding public var IP : String
     @Binding public var PORT: String
     @Binding public var commandsList: [[String]]
-    @Binding public var sliderValue: Double
+    @Binding public var car_config: car_config
     @State private var durationOfCommand: Double = 0.5
     @State private var isLoopRunning = false
     @State private var loopCount = 0
@@ -31,7 +31,9 @@ struct GreenSquareButtonPath: View {
     }
     func startLoop() {
             var index = 0
-            durationOfCommand = 1.0 + (100.0 - sliderValue)/100.0
+        durationOfCommand = car_config.name == "omni" ?
+        1.0 + (100.0 - car_config.slider_value)/100.0 :
+        1.0 + (200.0 - car_config.slider_value)/200.0
             timer = Timer.scheduledTimer(withTimeInterval: durationOfCommand, repeats: true) { timer in
                 guard index < commandsList.count else {
                     udpSocket.send(("k 0").data(using: .utf8)!)

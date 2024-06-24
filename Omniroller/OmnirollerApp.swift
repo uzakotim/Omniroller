@@ -12,7 +12,7 @@ import SwiftUI
 struct OmnirollerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(IP: "192.168.1.160", PORT: "8080", commandsList: [],isPathController: false)
+            ContentView(IP: "192.168.1.160", PORT: "8080", commandsList: [],isPathController: false, car_config: omni_robot_config,isToggledCar: false)
         }
     }
 }

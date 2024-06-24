@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BlueSquareButton: View {
-    @Binding public var sliderValue: Double
     @Binding public var udpSocket : UDPSocket
     @Binding public var isToggled : Bool
     var systemName: String // Icon name
