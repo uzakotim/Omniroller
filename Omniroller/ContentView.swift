@@ -22,7 +22,7 @@ struct car_config
 }
 
 let omni_robot_config : car_config = car_config(name: "omni", slider_value: 100, upper_limit: 150, lower_limit: 50)
-let skid_robot_config : car_config = car_config(name: "skid", slider_value: 250, upper_limit: 250, lower_limit: 150)
+let skid_robot_config : car_config = car_config(name: "skid", slider_value: 150, upper_limit: 200, lower_limit: 100)
 
 
 struct ContentView: View {
