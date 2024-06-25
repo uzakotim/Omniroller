@@ -61,7 +61,6 @@ struct UserInputConfigView: View {
                 .background(darkBlueColor)
                 .padding(.horizontal)
             InputTextField(changingVariable: $PORT, colorScheme: colorScheme, mainText: "PORT: ", subText: "Please, enter the port")
-            Spacer()
             HStack{
                 Text("CAR CONFIG:")
                     .font(.headline)
