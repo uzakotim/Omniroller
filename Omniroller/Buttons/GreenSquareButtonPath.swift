@@ -31,8 +31,7 @@ struct GreenSquareButtonPath: View {
     }
     func startLoop() {
             var index = 0
-        durationOfCommand = car_config.name == "omni" ?
-        1.0 + (100.0 - car_config.slider_value)/100.0 :
+        durationOfCommand =
         1.0 + (150.0 - car_config.slider_value)/100.0
             timer = Timer.scheduledTimer(withTimeInterval: durationOfCommand, repeats: true) { timer in
                 guard index < commandsList.count else {
