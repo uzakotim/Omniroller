@@ -16,7 +16,7 @@ struct BlueCarButton: View {
     var command : String
     
     var body: some View {
-        let color = colorScheme == .dark ? Color(.orange) : Color(.green)
+        let color = colorScheme == .dark ? Color(.green) : darkBlueColor
         ZStack{
             Button(action: {
                 if (isToggled){
@@ -37,12 +37,12 @@ struct BlueCarButton: View {
 //                    .cornerRadius(30)
 //                    .padding(1)
             }
-            .frame(width: 200, height: 100)
+            .frame(width: 175, height: 75)
             .overlay(
-                RoundedRectangle(cornerRadius: 30)
+                RoundedRectangle(cornerRadius: 20)
                     .stroke((systemName == "skid" && isToggled) || (systemName == "omni" && !isToggled) ? color : color.opacity(0), lineWidth: 3)
             )
-            .cornerRadius(30)
+            .cornerRadius(20)
         }
     }
 }

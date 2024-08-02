@@ -61,6 +61,9 @@ struct UserInputConfigView: View {
                 .background(darkBlueColor)
                 .padding(.horizontal)
             InputTextField(changingVariable: $PORT, colorScheme: colorScheme, mainText: "PORT: ", subText: "Please, enter the port")
+            Divider()
+                .background(darkBlueColor)
+                .padding(.horizontal)
             HStack{
                 Text("CAR CONFIG:")
                     .font(.headline)
@@ -75,9 +78,8 @@ struct UserInputConfigView: View {
                 BlueCarButton(systemName: "skid", isToggled: $isToggledCar, car_config: $car_config,paddingValue: 10, colorScheme: colorScheme, command: "skid")
                 Spacer()
             }
-        }
-            .
-        padding()
+        }.padding()
+        
     
        
     }
