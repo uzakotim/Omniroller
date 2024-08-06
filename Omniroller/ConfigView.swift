@@ -12,20 +12,20 @@ import SwiftUI
 struct HeaderConfigMenu: View {
     var title: String
     var colorScheme : ColorScheme;
-    @Binding public var IP : String
-    @Binding public var PORT: String
+    
+    @AppStorage("IP") public var IP : String = ""
+    @AppStorage("PORT") public var PORT: String = ""
+    @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     @Binding public var commandsList: [[String]]
     @Binding public var isPathcontroller: Bool
     @Binding public var car_config: car_config
-    @Binding public var isToggledCar: Bool
-    
     var body: some View {
         
             HStack {
                 
                 NavigationLink(destination: {
                     
-                    ContentView(IP:IP,PORT:PORT,commandsList: commandsList, isPathController: isPathcontroller, car_config: car_config, isToggledCar: isToggledCar)
+                    ContentView(IP:IP,PORT:PORT,commandsList: commandsList, isPathController: isPathcontroller, car_config: car_config)
                 }, label: {
                     
                     Image(systemName: "arrowshape.left.circle.fill")
@@ -50,10 +50,10 @@ struct HeaderConfigMenu: View {
 
 struct UserInputConfigView: View {
     var colorScheme : ColorScheme;
-    @Binding public var IP : String
-    @Binding public var PORT: String
+    @AppStorage("IP") public var IP : String = ""
+    @AppStorage("PORT") public var PORT: String = ""
+    @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     @Binding public var car_config: car_config
-    @Binding public var isToggledCar: Bool
     var body: some View {
         VStack{
             InputTextField(changingVariable: $IP, colorScheme: colorScheme, mainText: "IP: ", subText: "Please, enter IP address of the robot")
@@ -87,12 +87,12 @@ struct UserInputConfigView: View {
 
 struct ConfigView: View {
     @Environment(\.colorScheme) var colorScheme
-    @State public var IP : String
-    @State public var PORT: String
+    @AppStorage("IP") public var IP : String = ""
+    @AppStorage("PORT") public var PORT: String = ""
+    @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     @State public var commandsList: [[String]]
     @State public var isPathController: Bool
     @State public var car_config: car_config
-    @State public var isToggledCar: Bool
 
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
     
@@ -101,8 +101,8 @@ struct ConfigView: View {
     var body: some View {
         VStack{
             NavigationStack {
-                HeaderConfigMenu(title: "CONFIGURATIONS", colorScheme: colorScheme, IP:$IP, PORT:$PORT, commandsList: $commandsList, isPathcontroller: $isPathController, car_config: $car_config, isToggledCar: $isToggledCar)
-                UserInputConfigView(colorScheme: colorScheme, IP: $IP, PORT: $PORT, car_config: $car_config, isToggledCar: $isToggledCar)
+                HeaderConfigMenu(title: "CONFIGURATIONS", colorScheme: colorScheme, commandsList: $commandsList, isPathcontroller: $isPathController, car_config: $car_config)
+                UserInputConfigView(colorScheme: colorScheme, car_config: $car_config)
                 Spacer()
                 Footer(colorScheme: colorScheme)
             }.navigationBarHidden(true)
@@ -112,5 +112,5 @@ struct ConfigView: View {
 }
 
 #Preview {
-    ConfigView(IP: "192.168.1.132", PORT: "8888",commandsList: [],isPathController: true, car_config: skid_robot_config, isToggledCar: true)
+    ConfigView(commandsList: [],isPathController: true, car_config: skid_robot_config)
 }

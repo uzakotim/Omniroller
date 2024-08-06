@@ -10,9 +10,19 @@ import SwiftUI
 
 @main
 struct OmnirollerApp: App {
+    init() {
+            // Set default values for UserDefaults
+            let defaults = UserDefaults.standard
+            defaults.register(defaults: [
+                "IP": "192.168.1.160", // Default IP
+                "PORT": "8080",      // Default PORT
+                "isToggledCar": false // Default toggle state
+            ])
+        }
     var body: some Scene {
+        @AppStorage("isToggledCar") var isToggledCar: Bool = false
         WindowGroup {
-            ContentView(IP: "192.168.1.160", PORT: "8080", commandsList: [],isPathController: false, car_config: omni_robot_config,isToggledCar: false)
+            ContentView( commandsList: [],isPathController: false, car_config: isToggledCar ? skid_robot_config : omni_robot_config)
         }
     }
 }

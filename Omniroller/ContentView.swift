@@ -27,16 +27,15 @@ let skid_robot_config : car_config = car_config(name: "skid", slider_value: 150,
 
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
-    @State public var IP : String
-    @State public var PORT: String
+    @AppStorage("IP") public var IP : String = ""
+    @AppStorage("PORT") public var PORT: String = ""
+    @AppStorage("isToggledCar") public var isToggledCar: Bool = true
     @State public var udpSocket : UDPSocket = UDPSocket(ipAddress: DEFAULT_ADDRESS, port: DEFAULT_PORT)
     @State public var sliderValue: Double = DEFAULT_SLIDER_VALUE // Initial slider value
     @State public var commandsList : [[String]]
     @State private var isToggled : Bool = true
     @State public var isPathController: Bool = false
     @State public var car_config: car_config
-    @State public var isToggledCar: Bool
-
     
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
     
@@ -45,7 +44,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(){
-                HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme, IP: $IP, PORT: $PORT, commandsList: $commandsList, isPathController: $isPathController, car_config: $car_config,isToggledCar: $isToggledCar)
+                HeaderMenu(title: "OMNIROLLER", colorScheme:colorScheme,  commandsList: $commandsList, isPathController: $isPathController, car_config: $car_config)
                 Spacer()
                 VStack {
                     if isPathController
@@ -111,5 +110,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(IP: "192.168.1.152", PORT:"3333",commandsList: [],isPathController: false, car_config: omni_robot_config, isToggledCar: true)
+    ContentView(IP: "192.168.1.152", PORT:"3333",commandsList: [],isPathController: false, car_config: omni_robot_config)
 }

@@ -10,12 +10,13 @@ import SwiftUI
 struct HeaderMenu: View {
     var title: String
     var colorScheme : ColorScheme;
-    @Binding public var IP: String
-    @Binding public var PORT: String
+    
+    @AppStorage("IP") public var IP : String = ""
+    @AppStorage("PORT") public var PORT: String = ""
+    @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     @Binding public var commandsList: [[String]]
     @Binding public var isPathController: Bool
     @Binding public var car_config: car_config
-    @Binding public var isToggledCar: Bool
 
     var body: some View {
         
@@ -33,7 +34,7 @@ struct HeaderMenu: View {
                             PORT: PORT,
                             commandsList: commandsList,
                             isPathController: isPathController,
-                            car_config: car_config, isToggledCar: isToggledCar)
+                            car_config: car_config)
                     }, label: {
                         Image(systemName: "gear")
                             .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)
