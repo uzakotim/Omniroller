@@ -29,7 +29,7 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("IP") public var IP : String = ""
     @AppStorage("PORT") public var PORT: String = ""
-    @AppStorage("isToggledCar") public var isToggledCar: Bool = true
+    @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     @State public var udpSocket : UDPSocket = UDPSocket(ipAddress: DEFAULT_ADDRESS, port: DEFAULT_PORT)
     @State public var sliderValue: Double = DEFAULT_SLIDER_VALUE // Initial slider value
     @State public var commandsList : [[String]]

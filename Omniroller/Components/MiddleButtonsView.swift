@@ -13,12 +13,13 @@ struct MiddleButtonsPath: View {
     @Binding public var IP : String
     @Binding public var PORT: String
     @Binding public var commandsList : [[String]]
+    @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     let padding : CGFloat;
     var colorScheme : ColorScheme
     var body: some View {
         HStack {
             Spacer()
-            if (car_config.name == "omni"){
+            if (!isToggledCar){
                 BlueSquareButtonPath(
                     
                     commandsList: $commandsList,
@@ -35,7 +36,7 @@ struct MiddleButtonsPath: View {
                 PORT: $PORT,
                 commandsList: $commandsList,
                 car_config: $car_config)
-            if (car_config.name == "omni"){
+            if (!isToggledCar){
                 BlueSquareButtonPath(
                     commandsList: $commandsList,
                     command: "d " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
@@ -55,12 +56,13 @@ struct MiddleButtonsPassive: View {
     @Binding public var udpSocket : UDPSocket
     @Binding public var IP : String
     @Binding public var PORT: String
+    @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     let padding : CGFloat;
     var colorScheme : ColorScheme
     var body: some View {
         HStack{
             Spacer()
-            if (car_config.name == "omni"){
+            if (!isToggledCar){
                 BlueSquareButton(
                     udpSocket: $udpSocket,
                     isToggled: $isToggled,
@@ -75,7 +77,7 @@ struct MiddleButtonsPassive: View {
                 IP: $IP,
                 PORT: $PORT,
                 colorScheme: colorScheme)
-            if (car_config.name == "omni"){
+            if (!isToggledCar){
                 BlueSquareButton(
                     udpSocket: $udpSocket,
                     isToggled: $isToggled,
