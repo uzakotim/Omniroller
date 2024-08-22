@@ -19,34 +19,47 @@ struct HeaderConfigMenu: View {
     @Binding public var commandsList: [[String]]
     @Binding public var isPathcontroller: Bool
     @Binding public var car_config: car_config
-    var body: some View {
-        
-            HStack {
-                
-                NavigationLink(destination: {
-                    
-                    ContentView(IP:IP,PORT:PORT,commandsList: commandsList, isPathController: isPathcontroller, car_config: car_config)
-                }, label: {
-                    
-                    Image(systemName: "arrowshape.left.circle.fill")
-                        .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)
-                                        .font(.title)
-                })
-                
-                Spacer()
-                Text("CONFIGURATIONS")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)
+    @State private var showNextView = false
 
-                Spacer()
-                  
+        var body: some View {
+            NavigationStack {
+                HStack {
+                    Button(action: {
+                        withAnimation(.easeInOut) {
+                            showNextView = true
+                        }
+                    }) {
+                        Image(systemName: "arrowshape.left.circle.fill")
+                            .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)
+                            .font(.title)
+                    }
+
+                    Spacer()
+                    Text("CONFIGURATIONS")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(colorScheme == .dark ? Color.white : darkBlueColor)
+
+                    Spacer()
+                }
+                .padding()
+                .background(
+                    NavigationLink(
+                        value: "nextView",
+                        label: { EmptyView() }
+                    )
+                    .opacity(0) // Hide the link itself, we're using it just for navigation
+                )
+                .navigationDestination(isPresented: $showNextView) {
+                    // Destination view
+                    ContentView(IP:IP,PORT:PORT,commandsList: commandsList, isPathController: isPathcontroller, car_config: car_config)
+                        .transition(.move(edge: .leading)) // Left to right transition
+                }
             }
-            .padding()
-    
-       
-    }
+        }
 }
+
+
 
 struct UserInputConfigView: View {
     var colorScheme : ColorScheme;
