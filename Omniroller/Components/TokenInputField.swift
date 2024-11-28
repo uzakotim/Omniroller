@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TokenInputField: View {
-    @Binding public var changingVariable : String
+    @AppStorage("IP") public var IP : String = ""
     @AppStorage("TokenMode") public var isTokenMode : Bool = false
     var colorScheme: ColorScheme
     let mainText: String
@@ -21,10 +21,10 @@ struct TokenInputField: View {
                 .font(.headline)
                 .foregroundColor(colorScheme == .dark ? .white : darkBlueColor)
             Spacer()
-            TextField(subText, text: $changingVariable)
+            TextField(subText, text: $IP)
                 .padding()
                 .background(.opacity(0))
-                .onChange(of: changingVariable) { oldValue, newValue in
+                .onChange(of: IP) { oldValue, newValue in
                     isTokenMode = detectInputType(newValue)
                 }
             Spacer()

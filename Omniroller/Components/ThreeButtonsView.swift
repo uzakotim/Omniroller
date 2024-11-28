@@ -35,7 +35,7 @@ struct ThreeButtonsPath : View {
                 Spacer()
                 BlueSquareButtonPath(commandsList: $commandsList, command: direction == "up" ?
                                      "\(isTokenMode ? "\(IP)::" : "")e " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
-                                        "\(isTokenMode ? "\(IP)::" : "")c " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
+                                        "\(isTokenMode ?  "\(IP)::" : "")c " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
                     systemName: "arrow." + direction + ".right",
                     paddingValue: paddingRight,
                     colorScheme: colorScheme)

@@ -17,7 +17,7 @@ struct OmnirollerApp: App {
                 "IP": "ON4SOffxtRJuBsQ3TMvnF0tKGR9n0ujO", // Default token
                 "PORT": "8080",      // Default PORT
                 "isToggledCar": false, // Default toggle state
-                "TokenModel": true // Default token mode
+                "TokenMode": true // Default token mode
             ])
         }
     var body: some Scene {

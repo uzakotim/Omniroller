@@ -63,14 +63,13 @@ struct HeaderConfigMenu: View {
 
 struct UserInputConfigView: View {
     var colorScheme : ColorScheme;
-    @AppStorage("IP") public var IP : String = ""
     @AppStorage("PORT") public var PORT: String = ""
     @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     @AppStorage("TokenMode") public var isTokenMode : Bool = false
     @Binding public var car_config: car_config
     var body: some View {
         VStack{
-            TokenInputField(changingVariable: $IP, colorScheme: colorScheme, mainText: "IP or Token: ", subText: "Please, enter IP address of the robot or its tocken")
+            TokenInputField(colorScheme: colorScheme, mainText: "IP or Token: ", subText: "Please, enter IP address of the robot or its tocken")
             Divider()
                 .background(darkBlueColor)
                 .padding(.horizontal)
