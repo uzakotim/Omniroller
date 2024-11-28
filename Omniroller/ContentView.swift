@@ -101,6 +101,7 @@ struct ContentView: View {
             }.navigationBarHidden(true)
             .onAppear{
                 print("IP: \(IP)")
+                udpSocket.start()   
             }
 
                 

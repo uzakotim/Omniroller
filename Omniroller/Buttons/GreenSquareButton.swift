@@ -10,7 +10,9 @@ import SwiftUI
 struct GreenSquareButton: View {
     @Binding public var isToggled : Bool
     @Binding public var udpSocket : UDPSocket
-    @Binding public var IP : String
+    
+    @AppStorage("TokenMode") public var isTokenMode : Bool = false
+    @AppStorage("IP") public var IP : String = ""
     @Binding public var PORT: String
     var colorScheme : ColorScheme
 
@@ -19,11 +21,11 @@ struct GreenSquareButton: View {
                 if (isToggled){
                     // print("connecting")
                     udpSocket = UDPSocket(ipAddress: IP, port: UInt16(PORT) ?? DEFAULT_PORT)
-                    udpSocket.start()
                 }else
                 {
-                    // print("disconnecting")
-                    udpSocket.send(("0 0").data(using: .utf8)!)
+//                     print("disconnecting")
+                    print("\(isTokenMode ? "\(IP)::" : "")k 0")
+                    udpSocket.send(("\(isTokenMode ? "\(IP)::" : "")k 0").data(using: .utf8)!)
                 }
                 isToggled.toggle()
             }) {

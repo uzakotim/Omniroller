@@ -50,7 +50,8 @@ struct ThreeButtonsPassive : View {
     @Binding public var commandsList :[[String]]
     @Binding public var udpSocket : UDPSocket
     @Binding public var isToggled : Bool
-    @Binding public var isTokenMode: Bool
+    @AppStorage("TokenMode") public var isTokenMode : Bool = false
+    @AppStorage("IP") public var IP : String = ""
     let direction : String
     let paddingLeft: CGFloat
     let paddingRight: CGFloat
@@ -65,8 +66,8 @@ struct ThreeButtonsPassive : View {
                 paddingValue: paddingLeft,
                 colorScheme: colorScheme,
                 command: direction == "up" ?
-                "q " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
-                    "z " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
+                "\(isTokenMode ? "\(IP)::" : "")q " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
+                    "\(isTokenMode ? "\(IP)::" : "")z " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
             Spacer()
             BlueSquareButton(
                 udpSocket: $udpSocket,
@@ -75,8 +76,8 @@ struct ThreeButtonsPassive : View {
                 paddingValue: paddingMiddle,
                 colorScheme: colorScheme,
                 command: direction=="up" ?
-                "w " + String(Int(car_config.slider_value)) :
-                    "s " + String(Int(car_config.slider_value)))
+                "\(isTokenMode ? "\(IP)::" : "")w " + String(Int(car_config.slider_value)) :
+                    "\(isTokenMode ? "\(IP)::" : "")s " + String(Int(car_config.slider_value)))
             Spacer()
             BlueSquareButton(
                 udpSocket: $udpSocket,
@@ -85,8 +86,8 @@ struct ThreeButtonsPassive : View {
                 paddingValue: paddingRight,
                 colorScheme: colorScheme,
                 command: direction == "up" ?
-                "e " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
-                "c " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) )
+                "\(isTokenMode ? "\(IP)::" : "")e " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) :
+                "\(isTokenMode ? "\(IP)::" : "")c " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE) )
         }.padding(.horizontal, 10)
          .padding(.bottom,0)
     }
@@ -125,7 +126,7 @@ struct ThreeButtonsView: View {
                                     commandsList: $commandsList,
                                     udpSocket: $udpSocket,
                                     isToggled: $isToggled,
-                                    isTokenMode: $isTokenMode, direction: direction,
+                                    direction: direction,
                                     paddingLeft: paddingLeft,
                                     paddingRight: paddingRight,
                                     paddingMiddle: paddingMiddle,

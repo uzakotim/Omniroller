@@ -12,6 +12,7 @@ class UDPSocket {
     
     init(ipAddress: String, port: UInt16) {
         // Initialize a UDP connection
+
         self.ipAddress = ipAddress
         self.port = port
         setupConnection()
@@ -25,8 +26,10 @@ class UDPSocket {
                connection = NWConnection(
                     host: NWEndpoint.Host(serverIP),
                     port: NWEndpoint.Port(integerLiteral: serverPort),
-                    using: parameters
-               )
+                    using: parameters)
+                connection?.start(queue: .global());
+                send("human::timur::12345".data(using: .utf8)!)
+               
            } else {
                // Use UDP connection
                parameters = .udp
@@ -36,6 +39,7 @@ class UDPSocket {
                    port: NWEndpoint.Port(integerLiteral: port),
                    using: parameters
                )
+               connection?.start(queue: .global());
            }
            
            
@@ -53,8 +57,6 @@ class UDPSocket {
     
     func start() {
         setupConnection() // Ensure the connection is up-to-date with the mode
-        connection?.start(queue: .global())
-        send("human::timur::12345".data(using: .utf8)!)
         print("Connection started in \(isTokenMode ? "TCP" : "UDP") mode")
     }
     

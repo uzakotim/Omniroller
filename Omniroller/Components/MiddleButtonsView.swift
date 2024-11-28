@@ -76,7 +76,6 @@ struct MiddleButtonsPassive: View {
             GreenSquareButton(
                 isToggled: $isToggled,
                 udpSocket: $udpSocket,
-                IP: $IP,
                 PORT: $PORT,
                 colorScheme: colorScheme)
             if (!isToggledCar){
