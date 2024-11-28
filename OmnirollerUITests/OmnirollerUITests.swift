@@ -114,7 +114,24 @@ final class OmnirollerUITests: XCTestCase {
         XCTAssertEqual(command_label, expected_command, "Command name mismatch")
         
     }
-
+    func testIPAddress(){
+        func isIPAddress(_ input: String) -> Bool {
+            let ipRegex = #"^(\d{1,3}\.){3}\d{1,3}$"#
+            if let _ = input.range(of: ipRegex, options: .regularExpression) {
+                return input.split(separator: ".").allSatisfy { segment in
+                    if let num = Int(segment), num >= 0 && num <= 255 {
+                        return true
+                    }
+                    return false
+                }
+            }
+            return false
+        }
+        XCTAssertEqual(isIPAddress("192.168.1.1"), true)
+        XCTAssertEqual(isIPAddress("192.168.1.256"), false)
+        XCTAssertEqual(isIPAddress("192.168.1.a"), false)
+        XCTAssertEqual(isIPAddress("uVay3t0KooVCdvABO2dXISNjB5SooCrP"), false)
+    }
     override func tearDown() {
             super.tearDown()
             app = nil

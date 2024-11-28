@@ -27,6 +27,8 @@
 		96AFA5272BE669E5009041EB /* SlidingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA51E2BE669E5009041EB /* SlidingBarView.swift */; };
 		96AFA5282BE669E5009041EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA51F2BE669E5009041EB /* ContentView.swift */; };
 		96AFA52A2BE669E5009041EB /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFA5212BE669E5009041EB /* InputTextField.swift */; };
+		C81BA7712CF85D6A0070DC36 /* TokenInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BA7702CF85D6A0070DC36 /* TokenInputField.swift */; };
+		C81BA7742CF85E380070DC36 /* OmnirollerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BA7732CF85E380070DC36 /* OmnirollerUnitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		96AFA51E2BE669E5009041EB /* SlidingBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingBarView.swift; sourceTree = "<group>"; };
 		96AFA51F2BE669E5009041EB /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		96AFA5212BE669E5009041EB /* InputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		C81BA7702CF85D6A0070DC36 /* TokenInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInputField.swift; sourceTree = "<group>"; };
+		C81BA7732CF85E380070DC36 /* OmnirollerUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnirollerUnitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		961B7C202BEE1CB8001BD376 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C81BA7702CF85D6A0070DC36 /* TokenInputField.swift */,
 				961B7C1D2BEE1C8C001BD376 /* HeaderMenu.swift */,
 				96AFA5212BE669E5009041EB /* InputTextField.swift */,
 				96AFA51E2BE669E5009041EB /* SlidingBarView.swift */,
@@ -121,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				967CF0EF2BEA7D3300A5C6FC /* OmnirollerUITests.swift */,
+				C81BA7722CF85E240070DC36 /* OmnirollerUnitTest */,
 			);
 			path = OmnirollerUITests;
 			sourceTree = "<group>";
@@ -164,6 +170,14 @@
 				96AFA5122BE669AC009041EB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C81BA7722CF85E240070DC36 /* OmnirollerUnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				C81BA7732CF85E380070DC36 /* OmnirollerUnitTests.swift */,
+			);
+			path = OmnirollerUnitTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81BA7742CF85E380070DC36 /* OmnirollerUnitTests.swift in Sources */,
 				967CF0F02BEA7D3300A5C6FC /* OmnirollerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +291,7 @@
 			files = (
 				96AFA5232BE669E5009041EB /* ConfigView.swift in Sources */,
 				9662158D2C296DF400A7DC64 /* BlueCarButton.swift in Sources */,
+				C81BA7712CF85D6A0070DC36 /* TokenInputField.swift in Sources */,
 				96AFA5272BE669E5009041EB /* SlidingBarView.swift in Sources */,
 				96AFA52A2BE669E5009041EB /* InputTextField.swift in Sources */,
 				96AFA5252BE669E5009041EB /* Socket.swift in Sources */,

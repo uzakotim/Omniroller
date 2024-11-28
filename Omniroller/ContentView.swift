@@ -29,13 +29,13 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("IP") public var IP : String = ""
     @AppStorage("PORT") public var PORT: String = ""
-    @AppStorage("isToggledCar") public var isToggledCar: Bool = false
     @State public var udpSocket : UDPSocket = UDPSocket(ipAddress: DEFAULT_ADDRESS, port: DEFAULT_PORT)
     @State public var sliderValue: Double = DEFAULT_SLIDER_VALUE // Initial slider value
     @State public var commandsList : [[String]]
     @State private var isToggled : Bool = true
     @State public var isPathController: Bool = false
     @State public var car_config: car_config
+    @State public var isTokenMode: Bool = true
     
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
     
@@ -64,7 +64,7 @@ struct ContentView: View {
                         PORT: $PORT,
                         isPathController: $isPathController,
                         commandsList: $commandsList,
-                        paddingLeft: 40,
+                        isTokenMode: $isTokenMode, paddingLeft: 40,
                         paddingMiddle: 0,
                         paddingRight: 40,
                         direction: "up",
@@ -77,7 +77,7 @@ struct ContentView: View {
                         PORT: $PORT,
                         isPathController: $isPathController,
                         commandsList: $commandsList,
-                        padding: 0,
+                        isTokenMode: $isTokenMode, padding: 0,
                         colorScheme: colorScheme)
                     ThreeButtonsView(
                         isToggled: $isToggled,
@@ -87,7 +87,7 @@ struct ContentView: View {
                         PORT: $PORT,
                         isPathController: $isPathController,
                         commandsList: $commandsList,
-                        paddingLeft: 0, 
+                        isTokenMode: $isTokenMode, paddingLeft: 0, 
                         paddingMiddle: 40,
                         paddingRight: 0, 
                         direction: "down",

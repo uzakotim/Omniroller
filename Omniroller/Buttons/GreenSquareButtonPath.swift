@@ -10,7 +10,6 @@ import SwiftUI
 struct GreenSquareButtonPath: View {
     @Binding public var isToggled : Bool
     @Binding public var udpSocket : UDPSocket
-    @Binding public var IP : String
     @Binding public var PORT: String
     @Binding public var commandsList: [[String]]
     @Binding public var car_config: car_config
@@ -19,7 +18,9 @@ struct GreenSquareButtonPath: View {
     @State private var loopCount = 0
     @State private var timer: Timer?
     
-   
+    @AppStorage("TokenMode") public var isTokenMode : Bool = false
+    @AppStorage("IP") public var IP : String = ""
+
     
     func toggleLoop() {
             if isLoopRunning {
@@ -35,7 +36,7 @@ struct GreenSquareButtonPath: View {
         1.0 + (150.0 - car_config.slider_value)/100.0
             timer = Timer.scheduledTimer(withTimeInterval: durationOfCommand, repeats: true) { timer in
                 guard index < commandsList.count else {
-                    udpSocket.send(("k 0").data(using: .utf8)!)
+                    udpSocket.send(("\(isTokenMode ? "\(IP)::" : "")k 0").data(using: .utf8)!)
                     timer.invalidate()
                     return
                 }
@@ -62,7 +63,7 @@ struct GreenSquareButtonPath: View {
                 }else
                 {
                     // print("disconnecting")
-                    udpSocket.send(("k 0").data(using: .utf8)!)
+                    udpSocket.send(("\(isTokenMode ? "\(IP)::" : "")k 0").data(using: .utf8)!)
                 }
                 self.toggleLoop()
                 isToggled.toggle()

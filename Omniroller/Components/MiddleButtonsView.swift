@@ -10,10 +10,12 @@ struct MiddleButtonsPath: View {
     @Binding public var isToggled : Bool
     @Binding public var car_config: car_config
     @Binding public var udpSocket : UDPSocket
-    @Binding public var IP : String
     @Binding public var PORT: String
     @Binding public var commandsList : [[String]]
+    
     @AppStorage("isToggledCar") public var isToggledCar: Bool = false
+    @AppStorage("TokenMode") public var isTokenMode : Bool = false
+    @AppStorage("IP") public var IP : String = ""
     let padding : CGFloat;
     var colorScheme : ColorScheme
     var body: some View {
@@ -24,7 +26,7 @@ struct MiddleButtonsPath: View {
                     
                     commandsList: $commandsList,
                     command:
-                        "a " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
+                        "\(isTokenMode ? "\(IP)::" : "")a " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
                     systemName: "arrow.left",
                     paddingValue: padding,
                     colorScheme: colorScheme)
@@ -32,14 +34,13 @@ struct MiddleButtonsPath: View {
             GreenSquareButtonPath(
                 isToggled: $isToggled,
                 udpSocket: $udpSocket,
-                IP: $IP,
                 PORT: $PORT,
                 commandsList: $commandsList,
                 car_config: $car_config)
             if (!isToggledCar){
                 BlueSquareButtonPath(
                     commandsList: $commandsList,
-                    command: "d " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
+                    command: "\(isTokenMode ? "\(IP)::" : "")d " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE),
                     systemName: "arrow.right",
                     paddingValue: padding,
                     colorScheme: colorScheme)
@@ -54,9 +55,10 @@ struct MiddleButtonsPassive: View {
     @Binding public var isToggled : Bool
     @Binding public var car_config: car_config
     @Binding public var udpSocket : UDPSocket
-    @Binding public var IP : String
     @Binding public var PORT: String
     @AppStorage("isToggledCar") public var isToggledCar: Bool = false
+    @AppStorage("TokenMode") public var isTokenMode : Bool = false
+    @AppStorage("IP") public var IP : String = ""
     let padding : CGFloat;
     var colorScheme : ColorScheme
     var body: some View {
@@ -69,7 +71,7 @@ struct MiddleButtonsPassive: View {
                     systemName: "arrow.left",
                     paddingValue: padding,
                     colorScheme: colorScheme,
-                    command: "a " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
+                    command: "\(isTokenMode ? "\(IP)::" : "")a " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
             }
             GreenSquareButton(
                 isToggled: $isToggled,
@@ -84,7 +86,7 @@ struct MiddleButtonsPassive: View {
                     systemName: "arrow.right",
                     paddingValue: padding,
                     colorScheme: colorScheme,
-                    command: "d " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
+                    command: "\(isTokenMode ? "\(IP)::" : "")d " + String(Int(car_config.slider_value)+FRICTION_ROTATION_SPEED_DIFFERENCE))
             }
             Spacer()
         }
@@ -100,6 +102,7 @@ struct MiddleButtonsView: View {
     @Binding public var PORT: String
     @Binding public var isPathController: Bool
     @Binding public var commandsList : [[String]]
+    @Binding public var isTokenMode: Bool
     let padding : CGFloat;
     var colorScheme : ColorScheme
     var body: some View {
@@ -108,7 +111,6 @@ struct MiddleButtonsView: View {
                 MiddleButtonsPath(isToggled: $isToggled,
                                   car_config: $car_config,
                                   udpSocket: $udpSocket,
-                                  IP: $IP,
                                   PORT: $PORT,
                                   commandsList: $commandsList,
                                   padding: padding,
@@ -117,7 +119,6 @@ struct MiddleButtonsView: View {
                 MiddleButtonsPassive(isToggled: $isToggled,
                                   car_config: $car_config,
                                   udpSocket: $udpSocket,
-                                  IP: $IP,
                                   PORT: $PORT,
                                   padding: padding,
                                   colorScheme: colorScheme)

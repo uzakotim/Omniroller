@@ -14,9 +14,10 @@ struct OmnirollerApp: App {
             // Set default values for UserDefaults
             let defaults = UserDefaults.standard
             defaults.register(defaults: [
-                "IP": "192.168.1.160", // Default IP
+                "IP": "ON4SOffxtRJuBsQ3TMvnF0tKGR9n0ujO", // Default token
                 "PORT": "8080",      // Default PORT
-                "isToggledCar": false // Default toggle state
+                "isToggledCar": false, // Default toggle state
+                "TokenModel": true // Default token mode
             ])
         }
     var body: some Scene {

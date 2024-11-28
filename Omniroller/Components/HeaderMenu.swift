@@ -17,7 +17,6 @@ struct HeaderMenu: View {
     @Binding public var commandsList: [[String]]
     @Binding public var isPathController: Bool
     @Binding public var car_config: car_config
-
     var body: some View {
         
     HStack {

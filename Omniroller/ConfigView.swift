@@ -66,17 +66,20 @@ struct UserInputConfigView: View {
     @AppStorage("IP") public var IP : String = ""
     @AppStorage("PORT") public var PORT: String = ""
     @AppStorage("isToggledCar") public var isToggledCar: Bool = false
+    @AppStorage("TokenMode") public var isTokenMode : Bool = false
     @Binding public var car_config: car_config
     var body: some View {
         VStack{
-            InputTextField(changingVariable: $IP, colorScheme: colorScheme, mainText: "IP: ", subText: "Please, enter IP address of the robot")
+            TokenInputField(changingVariable: $IP, colorScheme: colorScheme, mainText: "IP or Token: ", subText: "Please, enter IP address of the robot or its tocken")
             Divider()
                 .background(darkBlueColor)
                 .padding(.horizontal)
-            InputTextField(changingVariable: $PORT, colorScheme: colorScheme, mainText: "PORT: ", subText: "Please, enter the port")
-            Divider()
-                .background(darkBlueColor)
-                .padding(.horizontal)
+            if !isTokenMode{
+                InputTextField(changingVariable: $PORT, colorScheme: colorScheme, mainText: "PORT: ", subText: "Please, enter the port")
+                Divider()
+                    .background(darkBlueColor)
+                    .padding(.horizontal)
+            }
             HStack{
                 Text("CAR CONFIG:")
                     .font(.headline)
