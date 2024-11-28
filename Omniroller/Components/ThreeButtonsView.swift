@@ -96,12 +96,12 @@ struct ThreeButtonsView: View {
     @Binding public var isToggled : Bool
     @Binding public var car_config: car_config
     @Binding public var udpSocket : UDPSocket
-    @Binding public var IP : String
     @Binding public var PORT: String
     @Binding public var isPathController: Bool
     @Binding public var commandsList :[[String]]
     @Binding public var isTokenMode: Bool
-    
+    @AppStorage("IP") public var IP : String = ""
+
     let paddingLeft : CGFloat;
     let paddingMiddle: CGFloat;
     let paddingRight : CGFloat;

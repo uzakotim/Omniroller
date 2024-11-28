@@ -21,7 +21,7 @@ struct TokenInputField: View {
                 .font(.headline)
                 .foregroundColor(colorScheme == .dark ? .white : darkBlueColor)
             Spacer()
-            TextField(subText, text: $IP)
+            TextField(IP, text: $IP)
                 .padding()
                 .background(.opacity(0))
                 .onChange(of: IP) { oldValue, newValue in

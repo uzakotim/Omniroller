@@ -60,7 +60,6 @@ struct ContentView: View {
                         isToggled: $isToggled,
                         car_config: $car_config,
                         udpSocket: $udpSocket,
-                        IP: $IP,
                         PORT: $PORT,
                         isPathController: $isPathController,
                         commandsList: $commandsList,
@@ -73,7 +72,6 @@ struct ContentView: View {
                         isToggled: $isToggled,
                         car_config: $car_config,
                         udpSocket: $udpSocket,
-                        IP: $IP,
                         PORT: $PORT,
                         isPathController: $isPathController,
                         commandsList: $commandsList,
@@ -83,7 +81,6 @@ struct ContentView: View {
                         isToggled: $isToggled,
                         car_config: $car_config,
                         udpSocket: $udpSocket,
-                        IP: $IP,
                         PORT: $PORT,
                         isPathController: $isPathController,
                         commandsList: $commandsList,
@@ -102,6 +99,9 @@ struct ContentView: View {
                          whiteThemeBackground)
             
             }.navigationBarHidden(true)
+            .onAppear{
+                print("IP: \(IP)")
+            }
 
                 
         }
