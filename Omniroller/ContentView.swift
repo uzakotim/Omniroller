@@ -29,13 +29,13 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("IP") public var IP : String = ""
     @AppStorage("PORT") public var PORT: String = ""
+    @AppStorage("TokenMode") public var isTokenMode: Bool = false
     @State public var udpSocket : UDPSocket = UDPSocket(ipAddress: DEFAULT_ADDRESS, port: DEFAULT_PORT)
     @State public var sliderValue: Double = DEFAULT_SLIDER_VALUE // Initial slider value
     @State public var commandsList : [[String]]
     @State private var isToggled : Bool = true
     @State public var isPathController: Bool = false
     @State public var car_config: car_config
-    @State public var isTokenMode: Bool = true
     
     let darkThemeBackground = LinearGradient(gradient: Gradient(colors: [darkBlueColor.opacity(0.6), darkBlueColor]), startPoint: .top, endPoint: .bottom)
     
