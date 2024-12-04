@@ -20,7 +20,7 @@ struct GreenSquareButton: View {
             Button(action: {
                 if (isToggled){
                     // print("connecting")
-                    udpSocket = UDPSocket(ipAddress: IP, port: UInt16(PORT) ?? DEFAULT_PORT)
+//                    udpSocket = UDPSocket(ipAddress: IP, port: UInt16(PORT) ?? DEFAULT_PORT)
                 }else
                 {
 //                     print("disconnecting")

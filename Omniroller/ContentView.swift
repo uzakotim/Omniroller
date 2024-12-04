@@ -101,7 +101,8 @@ struct ContentView: View {
             }.navigationBarHidden(true)
             .onAppear{
                 print("IP: \(IP)")
-                udpSocket.start()   
+                udpSocket = UDPSocket(ipAddress: IP, port: UInt16(PORT) ?? DEFAULT_PORT)
+                udpSocket.start()
             }
 
                 
