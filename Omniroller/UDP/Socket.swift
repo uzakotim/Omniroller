@@ -5,7 +5,7 @@ class UDPSocket {
     private var connection: NWConnection?
     private var ipAddress: String
     private var port: UInt16
-    let serverIP = "www.featsion.com"
+    let serverIP = "uzakova.ddns.net"
     let serverPort: UInt16 = 12345
     @AppStorage("TokenMode") public var isTokenMode: Bool = false
 
